@@ -8,14 +8,18 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>将hexo博客搭建在github上 | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="注册github账号并创建仓库首先在github上注册账号。 填写用户名、email、密码 会有验证通过邮箱发送给你，进行验证 选择仓库 创建一个和你用户名相同的仓库，如：你的 用户名+.github.io,必须以用户名开头  创建仓库步骤  点击new repository新建 repository name 输入 用户名+.github.io，点击创建按钮SSH相关设置因为需要部署到你的git">
+<meta property="og:type" content="article">
 <meta property="og:title" content="将hexo博客搭建在github上">
 <meta property="og:url" content="http://example.com/2022/05/28/%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%9C%A8github%E4%B8%8A/index.html">
 <meta property="og:site_name" content="懒人">
+<meta property="og:description" content="注册github账号并创建仓库首先在github上注册账号。 填写用户名、email、密码 会有验证通过邮箱发送给你，进行验证 选择仓库 创建一个和你用户名相同的仓库，如：你的 用户名+.github.io,必须以用户名开头  创建仓库步骤  点击new repository新建 repository name 输入 用户名+.github.io，点击创建按钮SSH相关设置因为需要部署到你的git">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-28T03:01:39.000Z">
-<meta property="article:modified_time" content="2022-05-28T03:01:39.344Z">
+<meta property="article:modified_time" content="2022-05-28T08:00:33.124Z">
 <meta property="article:author" content="懒人">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="懒人" type="application/atom+xml">
@@ -169,7 +173,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="注册github账号并创建仓库"><a href="#注册github账号并创建仓库" class="headerlink" title="注册github账号并创建仓库"></a>注册github账号并创建仓库</h1><h2 id="首先在github上注册账号。"><a href="#首先在github上注册账号。" class="headerlink" title="首先在github上注册账号。"></a>首先在<a href="">github</a>上注册账号。</h2><ul>
+<li>填写用户名、email、密码</li>
+<li>会有验证通过邮箱发送给你，进行验证</li>
+<li>选择仓库</li>
+<li>创建一个和你用户名相同的仓库，如：你的 <strong>用户名+.github.io</strong>,必须以用户名开头</li>
+</ul>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>步骤</p>
+<ul>
+<li>点击new repository新建</li>
+<li>repository name 输入 <strong>用户名+.github.io</strong>，点击创建按钮<h1 id="SSH相关设置"><a href="#SSH相关设置" class="headerlink" title="SSH相关设置"></a>SSH相关设置</h1>因为需要部署到你的github仓库，每次更改都要deploy ，如果不配置ssh key 每次你都需要输入github 账号密码，太过烦琐。<h2 id="生成SSH"><a href="#生成SSH" class="headerlink" title="生成SSH"></a>生成SSH</h2>在blog目录下打开命令窗口，输入代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;//yourname填写你的github用户名</span><br><span class="line">git config --global user.email &quot;youremail&quot;//youremail填写你的github的邮箱</span><br></pre></td></tr></table></figure>
+可以用代码检查是否输入正确<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+执行以下命令生成密钥和公钥<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+之后回车，通过命令窗口显示的路径找到<code>id_rsa.pub</code>打开，将内容复制<h2 id="添加到github"><a href="#添加到github" class="headerlink" title="添加到github"></a>添加到github</h2>github主页点击右上角头像，setting-&gt; SSH and GPG keys，新建SSH key。<br>title可以随便填写,可以不填，我填的是我的用户名。key里面要把你的id_rsa.pub里面的信息复制进去，然后点击Add SSH key<br>这里验证一下是否连接成功，在根目录下的git bash中输入：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+会有如下提示：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &#x27;github.com (52.74.223.119)&#x27; can&#x27;t be established.</span><br><span class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+输入：yes，会有以下提示：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi yremp2! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+这表示配置成功，就可以下一步操作了。<h1 id="将Hexo部署到github"><a href="#将Hexo部署到github" class="headerlink" title="将Hexo部署到github"></a>将Hexo部署到github</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2>这一步是将hexo和Github关联起来，在你的博客根目录(我的是：Blog)下找到 _config.yml， 可以用记事本打开，在最下方找到<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+配置文件:后需要有空格，没有会出错<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2>安装deploy-git,blog目录下打开命令窗口<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+然后输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+输入hexo d时可能有时会跳出窗口要你输入username和password。</li>
+</ul>
+<p>这个时候在你的github仓库中你会发现会出现跟你博客根目录一样的文件，你的根目录上的文件已经部署到你的github仓库上了。</p>
+<p>打开浏览器，输入xxxx.github.io，这里将请按照 你的github用户名.github.io 输入，就可以访问你的博客啦。</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n 文章名称</span><br></pre></td></tr></table></figure>
+<h2 id="上传github"><a href="#上传github" class="headerlink" title="上传github"></a>上传github</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><ul>
+<li>hexo clean //清除缓存</li>
+<li>hexo g //生成新数据</li>
+<li>hexo d //部署</li>
+<li>hexo s //启动本地服务预览</li>
+<li>npm install hexo -g //安装Hexo</li>
+<li>npm update hexo -g //升级</li>
+<li>hexo init #初始化博客</li>
+<li>hexo server -p 5000 #更改端口</li>
+</ul>
+
       
       
         <span class="archive-article-date">
@@ -203,6 +241,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -414,6 +467,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">简介</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>
