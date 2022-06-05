@@ -16,8 +16,12 @@
 <meta property="og:description" content="快速入门MyBatis官网地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/mybatis-3.png">
+<meta property="og:image" content="http://example.com/images/mybatis-3.1.png">
+<meta property="og:image" content="http://example.com/images/mybatis-3.2.png">
+<meta property="og:image" content="http://example.com/images/mybatis-3.3.png">
+<meta property="og:image" content="http://example.com/images/mybatis-3.4.png">
 <meta property="article:published_time" content="2022-06-04T13:14:05.000Z">
-<meta property="article:modified_time" content="2022-06-04T13:55:12.624Z">
+<meta property="article:modified_time" content="2022-06-05T14:26:31.997Z">
 <meta property="article:author" content="懒人">
 <meta property="article:tag" content="一阶段">
 <meta property="article:tag" content="开源框架源码解析">
@@ -204,6 +208,90 @@
 <p>2.编写插入实体User的代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">InputStream resourceAsStream =</span><br><span class="line">Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">int insert = sqlSession.insert(&quot;userMapper.add&quot;, user);</span><br><span class="line">System.out.println(insert);</span><br><span class="line">//提交事务</span><br><span class="line">sqlSession.commit();</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
 <p>3.插入操作注意问题</p>
+<ul>
+<li>插入语句使用insert标签</li>
+<li>在映射文件中使用parameterType属性指定要插入的数据类型</li>
+<li>sql语句中使用#{实体属性名}方式引用实体类中的属性值</li>
+<li>插入操作使用的API是sqlSession.insert(“命名空间.id”,实体对象)；</li>
+<li>插入操作涉及数据库数据变化，所以要使用sqlSession对象显示的提交事务，及sqlSession.commot()<h2 id="MyBatis的修改数据操作"><a href="#MyBatis的修改数据操作" class="headerlink" title="MyBatis的修改数据操作"></a>MyBatis的修改数据操作</h2></li>
+</ul>
+<p>1.编写UserMapper映射文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapper namespace=&quot;userMapper&quot;&gt;</span><br><span class="line">    &lt;update id=&quot;update&quot; parameterType=&quot;com.lagou.domain.User&quot;&gt;</span><br><span class="line">      update user set username=#&#123;username&#125;,password=#&#123;password&#125; where id=#&#123;id&#125;</span><br><span class="line">    &lt;/update&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<p>2.编写修改实体User的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">InputStream resourceAsStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">int update = sqlSession.update(&quot;userMapper.update&quot;, user);</span><br><span class="line">System.out.println(update);</span><br><span class="line">sqlSession.commit();</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+<p>3.修改操作注意问题</p>
+<ul>
+<li>修改语句使用update标签</li>
+<li>修改操作使用的API是sqlSession.update(“命名空间.id”,实体对象)<h2 id="MyBatis的删除数据操作"><a href="#MyBatis的删除数据操作" class="headerlink" title="MyBatis的删除数据操作"></a>MyBatis的删除数据操作</h2></li>
+</ul>
+<p>1.编写UserMapper映射文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapper namespace=&quot;userMapper&quot;&gt;</span><br><span class="line">    &lt;delete id=&quot;delete&quot; parameterType=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">      delete from user where id=#&#123;id&#125;</span><br><span class="line">    &lt;/delete&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<p>2.编写删除数据的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">InputStream resourceAsStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">int delete = sqlSession.delete(&quot;userMapper.delete&quot;,3);</span><br><span class="line">System.out.println(delete);</span><br><span class="line">sqlSession.commit();</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure>
+<p>3.删除操作注意问题</p>
+<ul>
+<li>删除语句使用delete标签</li>
+<li>Sql语句中使用#{任意字符串}方式引用传递的单个参数</li>
+<li>删除操作使用的API是sqlSession.delete(“命名空间.id”,Object);</li>
+</ul>
+<h2 id="MyBatis的映射文件概述"><a href="#MyBatis的映射文件概述" class="headerlink" title="MyBatis的映射文件概述"></a>MyBatis的映射文件概述</h2><p><img src="/images/mybatis-3.1.png"></p>
+<h2 id="入门核心配置文件分析"><a href="#入门核心配置文件分析" class="headerlink" title="入门核心配置文件分析"></a>入门核心配置文件分析</h2><p>MyBatis核心配置文件层级关系</p>
+<ul>
+<li>configuration 配置<ul>
+<li>properties 属性</li>
+<li>settings 设置</li>
+<li>typeAliaes 类型别名</li>
+<li>typeHandlers 类型处理器</li>
+<li>objectFactory 对象工厂</li>
+<li>plugins 插件</li>
+<li>environments 环境<ul>
+<li>environment 环境变量<ul>
+<li>transactionManager 事务管理器</li>
+<li>dataSource 数据源</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>databaseIdProvider 数据库厂商标识</li>
+<li>mappers 映射器 <h3 id="MyBatis常用配置解析"><a href="#MyBatis常用配置解析" class="headerlink" title="MyBatis常用配置解析"></a>MyBatis常用配置解析</h3></li>
+</ul>
+</li>
+</ul>
+<p>1.environments标签</p>
+<p>数据库环境的配置，支持多环境配置<br><img src="/images/mybatis-3.2.png"><br>其中，事务管理器（transactionManager）类型有两种：</p>
+<ul>
+<li>JDBC：这个配置就是直接使用了JDBC的提交和回滚设置，它依赖于从数据源得到的连接来管理事务作用域。</li>
+<li>MANAGED：这个配置几乎没做什么。他从来不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如JEE应用服务器的上下文）。默认情况下他会关闭连接，然而一些容器并不希望这样，因此需要将closeConnection属性设置为false来阻止它默认的关闭行为。<br>其中，数据源（dataSource）类型有三种：</li>
+<li>UNPOOLED：这个数据源的实现只是每次被请求时打开和关闭连接。</li>
+<li>POOLED：这个数据源的实现利用”池”的概念将JDBC 连接对象组织起来。</li>
+<li>JNDL：这个数据源的实现是为了能在如EJB或应用服务器这类容器中使用，容器可以集中或在外部配置数据源，然后放置一个JNDL上下文的引用。</li>
+</ul>
+<p>2.mapper标签<br>该标签的作用是加载映射的，加载方式有如下几种：</p>
+<ul>
+<li>使用相对于类路径的资源引用，例如：<br><code>&lt;mapper resource=&quot;org/mybatis/builder/AuthorMapper.xml&quot;/&gt;</code></li>
+<li>使用完全限定资源定位符（URL），例如：<br><code>&lt;mapper url=&quot;file:///var/mappers/AuthorMapper.xml&quot;/&gt;</code></li>
+<li>使用映射器接口实现类的完全限定类名，例如：<br><code>&lt;mapper class=&quot;org.mybatis.builder.AuthorMapper&quot;/&gt;</code></li>
+<li>将包内的映射器接口实现全部注册为映射器，例如：<br><code>&lt;package name=&quot;org.mybatis.builder&quot;/&gt;</code><h2 id="Mybatis相应API介绍"><a href="#Mybatis相应API介绍" class="headerlink" title="Mybatis相应API介绍"></a>Mybatis相应API介绍</h2></li>
+</ul>
+<p><strong>SqlSession工厂构建器SqlSessionFactoryBuilder</strong><br>常用API：SqlSessionFactory build(InputStream inputStream)<br>通过加载mybatis的核心文件的输入流的形式构建一个SqlSessionFactory对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String resource = &quot;org/mybatis/builder/mybatis-config.xml&quot;;</span><br><span class="line">InputStream inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();</span><br><span class="line">SqlSessionFactory factory = builder.build(inputStream);</span><br></pre></td></tr></table></figure>
+<p>其中，Resources工具类，这个类在 org.apache.ibatis.io包中。Resources类帮助你从类路径下、文<br>件系统或一个web URL中加载资源文件。<br><strong>SqlSession工厂对象SqlSessionFactory</strong><br>SqlSessionFactory 有多个个方法创建SqlSession 实例。常用的有如下两个：<br><img src="/images/mybatis-3.3.png"><br><strong>SqlSession会话对象</strong><br>SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看到所有执行语句、提交或回滚事务和<br>获取映射器实例的方法。<br>执行语句的方法主要有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;T&gt; T selectOne(String statement, Object parameter)</span><br><span class="line">&lt;E&gt; List&lt;E&gt; selectList(String statement, Object parameter)</span><br><span class="line">int insert(String statement, Object parameter)</span><br><span class="line">int update(String statement, Object parameter)</span><br><span class="line">int delete(String statement, Object parameter)</span><br></pre></td></tr></table></figure>
+<p>操作事务的方法主要有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void commit()</span><br><span class="line">void rollback()</span><br></pre></td></tr></table></figure>
+<h1 id="Mybatis的Dao层实现"><a href="#Mybatis的Dao层实现" class="headerlink" title="Mybatis的Dao层实现"></a>Mybatis的Dao层实现</h1><h2 id="传统开发方式"><a href="#传统开发方式" class="headerlink" title="传统开发方式"></a>传统开发方式</h2><p>编写UserDao接口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface UserDao &#123;</span><br><span class="line">    List&lt;User&gt; findAll() throws IOException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写UserDaoImpl实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class UserDaoImpl implements UserDao &#123;</span><br><span class="line">    public List&lt;User&gt; findAll() throws IOException &#123;</span><br><span class="line">        InputStream resourceAsStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</span><br><span class="line">        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">        SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        List&lt;User&gt; userList = sqlSession.selectList(&quot;userMapper.findAll&quot;);</span><br><span class="line">        sqlSession.close();</span><br><span class="line">        return userList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试传统方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testTraditionDao() throws IOException &#123;</span><br><span class="line">    UserDao userDao = new UserDaoImpl();</span><br><span class="line">    List&lt;User&gt; all = userDao.findAll();</span><br><span class="line">    System.out.println(all);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代理开发方式"><a href="#代理开发方式" class="headerlink" title="代理开发方式"></a>代理开发方式</h2><p><strong>代理开发方式介绍</strong><br>采用 Mybatis 的代理开发方式实现 DAO 层的开发，这种方式是我们后面进入企业的主流。<br>Mapper 接口开发方法只需要程序员编写Mapper 接口（相当于Dao 接口），由Mybatis 框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。<br>Mapper 接口开发需要遵循以下规范：</p>
+<ul>
+<li>Mapper.xml文件中的namespace与mapper接口的全限定名相同</li>
+<li>Mapper接口方法名和Mapper.xml中定义的每个statement的id相同</li>
+<li>Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql的parameterType的类型相同</li>
+<li>Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同<br>编写UserMapper接口<br><img src="/images/mybatis-3.4.png"><br>测试代理方式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testProxyDao() throws IOException &#123;</span><br><span class="line">    InputStream resourceAsStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</span><br><span class="line">    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);</span><br><span class="line">    SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">    //获得MyBatis框架生成的UserMapper接口的实现类</span><br><span class="line">    UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    User user = userMapper.findById(1);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
       
@@ -328,6 +416,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/06/05/%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%B7%B1%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          第四部分：Mybatis配置文件深入
+        
+      </div>
+    </a>
   
   
     <a href="/2022/06/04/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
@@ -463,15 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,7 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
