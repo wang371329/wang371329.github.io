@@ -169,6 +169,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="第十一部分：设计模式"><a href="#第十一部分：设计模式" class="headerlink" title="第十一部分：设计模式"></a>第十一部分：设计模式</h1><p>虽然我们都知道有3类23种设计模式，但是大多停留在概念层面，Mybatis源码中使用了大量的设计模式，观察设计模式在其中的应用，能够更深入的理解设计模式<br>Mybatis至少用到了以下的设计模式的使用：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>mybatis体现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Builder模式</td>
+<td>例如SqlSessionFactoryBuilder、Environment;</td>
+</tr>
+<tr>
+<td>工厂方法模式</td>
+<td>例如SqlSessionFactory、TransactionFactory、LogFactory</td>
+</tr>
+<tr>
+<td>单例模式</td>
+<td>例如 ErrorContext 和 LogFactory；</td>
+</tr>
+<tr>
+<td>代理模式</td>
+<td>Mybatis实现的核心，比如MapperProxy、ConnectionLogger，用的jdk的动态代理还有executor.loader包使用了 cglib或者javassist达到延迟加载的效果</td>
+</tr>
+<tr>
+<td>组合模式</td>
+<td>例如SqlNode和各个子类ChooseSqlNode等；</td>
+</tr>
+<tr>
+<td>模板方法模式</td>
+<td>例如 BaseExecutor 和 SimpleExecutor，还有 BaseTypeHandler 和所有的子类例如IntegerTypeHandler；</td>
+</tr>
+<tr>
+<td>适配器模式</td>
+<td>例如Log的Mybatis接口和它对jdbc、log4j等各种日志框架的适配实现；</td>
+</tr>
+<tr>
+<td>装饰者模式</td>
+<td>例如Cache包中的cache.decorators子包中等各个装饰者的实现；</td>
+</tr>
+<tr>
+<td>迭代器模式</td>
+<td>例如迭代器模式PropertyTokenizer；</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2022/06/16/%E7%AC%AC%E5%8D%81%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
         
       
       
