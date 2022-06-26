@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>windows下yilia主题 | 懒人</title>
+  <title>数据库简单操作-Db | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。我们下载yilia，在themes目录： 1git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git  git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)之后在blog根目录下的_config">
+  <meta name="description" content="由来数据库操作不外乎四门功课：增删改查，在Java的世界中，由于JDBC的存在，这项工作变得简单易用，但是也并没有做到使用上的简化。于是出现了JPA（Hibernate）、MyBatis、Jfinal等解决框架，或解决多数据库差异问题，或解决SQL维护问题。而Hutool对JDBC的封装，多数为在小型项目中对数据处理的简化，尤其只涉及单表操作时。OK，废话不多，来个Demo感受下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows下yilia主题">
-<meta property="og:url" content="http://example.com/2022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/index.html">
+<meta property="og:title" content="数据库简单操作-Db">
+<meta property="og:url" content="http://example.com/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C-Db/index.html">
 <meta property="og:site_name" content="懒人">
-<meta property="og:description" content="blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。我们下载yilia，在themes目录： 1git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git  git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)之后在blog根目录下的_config">
+<meta property="og:description" content="由来数据库操作不外乎四门功课：增删改查，在Java的世界中，由于JDBC的存在，这项工作变得简单易用，但是也并没有做到使用上的简化。于是出现了JPA（Hibernate）、MyBatis、Jfinal等解决框架，或解决多数据库差异问题，或解决SQL维护问题。而Hutool对JDBC的封装，多数为在小型项目中对数据处理的简化，尤其只涉及单表操作时。OK，废话不多，来个Demo感受下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-28T02:48:30.000Z">
-<meta property="article:modified_time" content="2022-05-28T02:58:39.588Z">
+<meta property="article:published_time" content="2022-06-26T14:50:28.000Z">
+<meta property="article:modified_time" content="2022-06-26T14:57:32.637Z">
 <meta property="article:author" content="懒人">
-<meta property="article:tag" content="windows">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="yilia">
+<meta property="article:tag" content="hutools">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="懒人" type="application/atom+xml">
@@ -153,7 +151,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-windows下yilia主题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库简单操作-Db" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -161,23 +159,52 @@
         
   
     <h1 class="article-title" itemprop="name">
-      windows下yilia主题
+      数据库简单操作-Db
     </h1>
   
 
         
-        <a href="/2022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2022-05-28T02:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-28</time>
+        <a href="/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C-Db/" class="archive-article-date">
+  	<time datetime="2022-06-26T14:50:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。<br>我们下载yilia，在themes目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git </span><br></pre></td></tr></table></figure>
-<p>git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)<br>之后在blog根目录下的_config.yml修改保存，<code>hexo serve</code>会自动切换主题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+        <h1 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h1><p>数据库操作不外乎四门功课：增删改查，在Java的世界中，由于JDBC的存在，这项工作变得简单易用，但是也并没有做到使用上的简化。于是出现了JPA（Hibernate）、MyBatis、Jfinal等解决框架，或解决多数据库差异问题，或解决SQL维护问题。而Hutool对JDBC的封装，多数为在小型项目中对数据处理的简化，尤其只涉及单表操作时。OK，废话不多，来个Demo感受下。</p>
+<span id="more"></span>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>我们以MySQL为例</p>
+<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><p>Maven项目中在src/main/resources目录下添加db.setting文件（非Maven项目添加到ClassPath中即可）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## db.setting文件</span><br><span class="line"></span><br><span class="line">url = jdbc:mysql://localhost:3306/test</span><br><span class="line">user = root</span><br><span class="line">pass = 123456</span><br><span class="line"></span><br><span class="line">## 可选配置</span><br><span class="line"># 是否在日志中显示执行的SQL</span><br><span class="line">showSql = true</span><br><span class="line"># 是否格式化显示的SQL</span><br><span class="line">formatSql = false</span><br><span class="line"># 是否显示SQL参数</span><br><span class="line">showParams = true</span><br></pre></td></tr></table></figure>
+
+<h2 id="引入MySQL-JDBC驱动jar"><a href="#引入MySQL-JDBC驱动jar" class="headerlink" title="引入MySQL JDBC驱动jar"></a>引入MySQL JDBC驱动jar</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mysql数据库驱动 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;$&#123;mysql.version&#125;&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>此处不定义MySQL版本，请参考官方文档使用匹配的驱动包版本。</p>
+</blockquote>
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p><strong>增</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Db.use().insert(</span><br><span class="line">    Entity.create(&quot;user&quot;)</span><br><span class="line">    .set(&quot;name&quot;, &quot;unitTestUser&quot;)</span><br><span class="line">    .set(&quot;age&quot;, 66)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>插入数据并返回自增主键：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Db.use().insertForGeneratedKey(</span><br><span class="line">    Entity.create(&quot;user&quot;)</span><br><span class="line">    .set(&quot;name&quot;, &quot;unitTestUser&quot;)</span><br><span class="line">    .set(&quot;age&quot;, 66)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><strong>删</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Db.use().del(</span><br><span class="line">    Entity.create(&quot;user&quot;).set(&quot;name&quot;, &quot;unitTestUser&quot;)//where条件</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><strong>改</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Db.use().update(</span><br><span class="line">    Entity.create().set(&quot;age&quot;, 88), //修改的数据</span><br><span class="line">    Entity.create(&quot;user&quot;).set(&quot;name&quot;, &quot;unitTestUser&quot;) //where条件</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>条件语句除了可以用=精确匹配外，也可以范围条件匹配，例如表示 age &lt; 12 可以这样构造Entity：Entity.create(“user”).set(“age”, “&lt; 12”)，但是通过Entity方式传入条件暂时不支持同字段多条件的情况。</p>
+</blockquote>
+<p><strong>查</strong><br>查询全部字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//user为表名</span><br><span class="line">Db.use().findAll(&quot;user&quot;);</span><br></pre></td></tr></table></figure>
+<p>条件查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.use().findAll(Entity.create(&quot;user&quot;).set(&quot;name&quot;, &quot;unitTestUser&quot;));</span><br></pre></td></tr></table></figure>
+<p>模糊查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.use().findLike(&quot;user&quot;, &quot;name&quot;, &quot;Test&quot;, LikeType.Contains);</span><br></pre></td></tr></table></figure>
+<p>分页查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//Page对象通过传入页码和每页条目数达到分页目的</span><br><span class="line">PageResult&lt;Entity&gt; result = Db.use().page(Entity.create(&quot;user&quot;).set(&quot;age&quot;, &quot;&gt; 30&quot;), new Page(10, 20));</span><br></pre></td></tr></table></figure>
+<p>执行SQL语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询</span><br><span class="line">List&lt;Entity&gt; = Db.use().query(&quot;select * from user where age &lt; ?&quot;, 3);</span><br><span class="line">//更新</span><br><span class="line">Db.use().query(&quot;update user set age = ? where name = ?&quot;, 3, &quot;张三&quot;);</span><br></pre></td></tr></table></figure>
+<p>事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Db.use().tx(new TxFunc() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void call(Db db) throws SQLException &#123;</span><br><span class="line">        db.insert(Entity.create(&quot;user&quot;).set(&quot;name&quot;, &quot;unitTestUser&quot;));</span><br><span class="line">        db.update(Entity.create().set(&quot;age&quot;, 79), Entity.create(&quot;user&quot;).set(&quot;name&quot;, &quot;unitTestUser&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
       
         <span class="archive-article-date">
@@ -216,15 +243,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hutools</a>
         		</li>
       		
 		</ul>
@@ -280,7 +299,7 @@
   <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
   <p>扫一扫，分享到微信</p>
   <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C-Db/" alt="微信分享二维码">
   </div>
 </div>
 
@@ -294,18 +313,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/05/28/%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%9C%A8github%E4%B8%8A/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          将hexo博客搭建在github上
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建hexo博客</div>
+    <a href="/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93-Hutool-db/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库(Hutool-db)</div>
       <i class="icon-circle-right"></i>
     </a>
   

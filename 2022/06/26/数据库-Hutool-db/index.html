@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>windows下yilia主题 | 懒人</title>
+  <title>数据库(Hutool-db) | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。我们下载yilia，在themes目录： 1git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git  git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)之后在blog根目录下的_config">
+  <meta name="description" content="由来Hutool-db是一个在JDBC基础上封装的数据库操作工具类，通过包装，使用ActiveRecord思想操作数据库。在Hutool-db中，使用Entity（本质上是个Map）代替Bean来使数据库操作更加灵活，同时提供Bean和Entity的转换提供传统ORM的兼容支持。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows下yilia主题">
-<meta property="og:url" content="http://example.com/2022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/index.html">
+<meta property="og:title" content="数据库(Hutool-db)">
+<meta property="og:url" content="http://example.com/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93-Hutool-db/index.html">
 <meta property="og:site_name" content="懒人">
-<meta property="og:description" content="blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。我们下载yilia，在themes目录： 1git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git  git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)之后在blog根目录下的_config">
+<meta property="og:description" content="由来Hutool-db是一个在JDBC基础上封装的数据库操作工具类，通过包装，使用ActiveRecord思想操作数据库。在Hutool-db中，使用Entity（本质上是个Map）代替Bean来使数据库操作更加灵活，同时提供Bean和Entity的转换提供传统ORM的兼容支持。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-28T02:48:30.000Z">
-<meta property="article:modified_time" content="2022-05-28T02:58:39.588Z">
+<meta property="og:image" content="http://example.com/images/hutools/hutools-1.png">
+<meta property="article:published_time" content="2022-06-26T14:40:51.000Z">
+<meta property="article:modified_time" content="2022-06-26T14:50:51.852Z">
 <meta property="article:author" content="懒人">
-<meta property="article:tag" content="windows">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="yilia">
+<meta property="article:tag" content="hutools">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/hutools/hutools-1.png">
   
     <link rel="alternative" href="/atom.xml" title="懒人" type="application/atom+xml">
   
@@ -153,7 +153,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-windows下yilia主题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库-Hutool-db" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -161,23 +161,42 @@
         
   
     <h1 class="article-title" itemprop="name">
-      windows下yilia主题
+      数据库(Hutool-db)
     </h1>
   
 
         
-        <a href="/2022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2022-05-28T02:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-28</time>
+        <a href="/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93-Hutool-db/" class="archive-article-date">
+  	<time datetime="2022-06-26T14:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>blog根目录，有个themes的目录（文件夹），cd进去，在此下载一个新的theme就可以了。<br>我们下载yilia，在themes目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git </span><br></pre></td></tr></table></figure>
-<p>git克隆完之后，我们就有了新theme资源(themes下会有两个文件夹landscape和yilia)<br>之后在blog根目录下的_config.yml修改保存，<code>hexo serve</code>会自动切换主题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+        <h1 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h1><p>Hutool-db是一个在JDBC基础上封装的数据库操作工具类，通过包装，使用ActiveRecord思想操作数据库。在Hutool-db中，使用Entity（本质上是个Map）代替Bean来使数据库操作更加灵活，同时提供Bean和Entity的转换提供传统ORM的兼容支持。</p>
+<span id="more"></span>
+<h1 id="整体的架构"><a href="#整体的架构" class="headerlink" title="整体的架构"></a>整体的架构</h1><p><img src="/images/hutools/hutools-1.png"></p>
+<ul>
+<li>数据源 DataSource</li>
+<li>SQL执行器 SqlExecutor</li>
+<li>CRUD的封装 Db、SqlConnRunner SqlRunner</li>
+<li>支持事务的CRUD封装 Session</li>
+<li>各种结果集处理类 handler</li>
+<li>数据库的一些工具方法汇总 DbUtil<br>还有就是没有列出来的dialect（数据库方言），我会根据给定的DataSource、Connection等对象自动识别是什么数据库，然后使用不同的方言构造SQL语句，暂时支持的数据库有MySQL、Oracle、SqlLite3，当然如果识别失败会用ANSI SQL，这样遇到不支持的数据，可以搞定大部分方法。<h2 id="CRUD的封装-Db-SqlConnRunner-SqlRunner"><a href="#CRUD的封装-Db-SqlConnRunner-SqlRunner" class="headerlink" title="CRUD的封装 Db SqlConnRunner SqlRunner"></a>CRUD的封装 Db SqlConnRunner SqlRunner</h2>这两个类有些相似，里面都封装了增、删、改、查、分页、个数方法，差别是SqlConnRunner需要每个方法都传Connection对象，而SqlRunner继承自SqlConnRunner，在传入DataSource会自动获取Connection对象。<h2 id="各种结果集处理类-handler"><a href="#各种结果集处理类-handler" class="headerlink" title="各种结果集处理类 handler"></a>各种结果集处理类 handler</h2></li>
+</ul>
+<p>此包中有个叫做RsHandler的接口，传入ResultSet对象，返回什么则在handle方法中自己指定。<br>实现的类有：</p>
+<ul>
+<li>EntityListHandler 转换为Entity列表</li>
+<li>NumberHandler 当使用select count(1)这类语句的时候，或者返回只有一个结果，且为数字结果的时候，用这个handler</li>
+<li>EntityHandler 返回一条记录的时候用这个</li>
+<li>数据库的一些工具方法汇总 DbUtil 提供一些工具方法，最常用的就是close方法了，由于JDK7才把ResultSet<code>Statement</code>PreparedStatement``Connection这几个接口实现了Closeable接口，所以之前只能判断类型再去关闭，这样一个close方法可以关闭多个对象。<h1 id="对象解释"><a href="#对象解释" class="headerlink" title="对象解释"></a>对象解释</h1><h2 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h2>在ORM中，我把一张表中的一条数据映射成为一个叫做Entity的类，继承自HashMap，key是字段名，value是Object类型，字段值，这样一个Entity对象就是数据库表中的一条记录，当然这个对象中还有个字段是表的名字，方便之后的操作。之后对数据库增删改查操作的对象大多是这个。</li>
+</ul>
+<p>这个对象充当着两种角色，一个是数据的载体，表示一条数据，另一个就是where语句的条件，充当where条件时，key依旧是字段名，value是字段条件值。例如：<br><code>Entity where = Entity.create(TABLE_NAME).set(&quot;条件1&quot;, &quot;条件值&quot;);</code><br>表示的where语句是：</p>
+<p><code>WHERE `条件1` = 条件值</code><br>当然到时候会用PreparedStatement，不会出现SQL注入。</p>
+<h2 id="Table-Column"><a href="#Table-Column" class="headerlink" title="Table Column"></a>Table Column</h2><p>这两个对象主要是描述数据库表结构的，暂时和ORM本身没啥关系，只是当你想获得一些字段信息的时候，这样来获得表结构信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private static void getTableMetaInfo(DataSource ds) &#123;</span><br><span class="line">    // 获得当前库的所有表的表名</span><br><span class="line">    List&lt;String&gt; tableNames = DbUtil.getTables(ds);</span><br><span class="line">    Log.info(&quot;&#123;&#125;&quot;, tableNames);</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * 获得表结构 表结构封装为一个表对象，里面有Column对象表示一列，列中有列名、类型、大小、是否允许为空等信息</span><br><span class="line">     */</span><br><span class="line">    Table table = DbUtil.getTableMeta(ds, TABLE_NAME);</span><br><span class="line">    Log.info(&quot;&#123;&#125;&quot;, table);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
       
         <span class="archive-article-date">
@@ -216,15 +235,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hutools</a>
         		</li>
       		
 		</ul>
@@ -280,7 +291,7 @@
   <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
   <p>扫一扫，分享到微信</p>
   <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/05/28/windows%E4%B8%8Byilia%E4%B8%BB%E9%A2%98/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93-Hutool-db/" alt="微信分享二维码">
   </div>
 </div>
 
@@ -294,18 +305,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/05/28/%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%9C%A8github%E4%B8%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C-Db/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          将hexo博客搭建在github上
+          数据库简单操作-Db
         
       </div>
     </a>
   
   
-    <a href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建hexo博客</div>
+    <a href="/2022/06/16/%E7%AC%AC%E5%8D%81%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第十一部分：设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
