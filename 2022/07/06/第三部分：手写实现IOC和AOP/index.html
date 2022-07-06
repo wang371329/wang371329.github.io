@@ -6,21 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>收集 | 懒人</title>
+  <title>第三部分：手写实现IOC和AOP | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="姓名：保密生日：1998.01.09民族：汉爱好：吃理想：在某一领域留名 以下是我看过的，其中喜欢的，收集起来，以后有喜欢的还会添加，部分遗忘">
+  <meta name="description" content="银⾏转账案例界⾯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="收集">
-<meta property="og:url" content="http://example.com/2022/06/29/%E6%94%B6%E9%9B%86/index.html">
+<meta property="og:title" content="第三部分：手写实现IOC和AOP">
+<meta property="og:url" content="http://example.com/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/index.html">
 <meta property="og:site_name" content="懒人">
-<meta property="og:description" content="姓名：保密生日：1998.01.09民族：汉爱好：吃理想：在某一领域留名 以下是我看过的，其中喜欢的，收集起来，以后有喜欢的还会添加，部分遗忘">
+<meta property="og:description" content="银⾏转账案例界⾯">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-29T12:42:27.000Z">
-<meta property="article:modified_time" content="2022-06-29T13:47:57.510Z">
+<meta property="og:image" content="http://example.com/images/spring/spring-11.png">
+<meta property="og:image" content="http://example.com/images/spring/spring-12.png">
+<meta property="og:image" content="http://example.com/images/spring/spring-13.png">
+<meta property="og:image" content="http://example.com/images/spring/spring-14.png">
+<meta property="og:image" content="http://example.com/images/spring/spring-15.png">
+<meta property="og:image" content="http://example.com/images/spring/spring-16.png">
+<meta property="article:published_time" content="2022-07-06T12:56:49.000Z">
+<meta property="article:modified_time" content="2022-07-06T13:40:16.316Z">
 <meta property="article:author" content="懒人">
-<meta property="article:tag" content="收集">
-<meta property="article:tag" content="介绍">
+<meta property="article:tag" content="一阶段">
+<meta property="article:tag" content="开源框架源码解析">
+<meta property="article:tag" content="模块二">
+<meta property="article:tag" content="Spring源码分析">
+<meta property="article:tag" content="IOC容器设计实现">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/spring/spring-11.png">
   
     <link rel="alternative" href="/atom.xml" title="懒人" type="application/atom+xml">
   
@@ -156,7 +166,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-收集" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-第三部分：手写实现IOC和AOP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -164,214 +174,73 @@
         
   
     <h1 class="article-title" itemprop="name">
-      收集
+      第三部分：手写实现IOC和AOP
     </h1>
   
 
         
-        <a href="/2022/06/29/%E6%94%B6%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2022-06-29T12:42:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
+        <a href="/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/" class="archive-article-date">
+  	<time datetime="2022-07-06T12:56:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>姓名：保密<br>生日：1998.01.09<br>民族：汉<br>爱好：吃<br>理想：在某一领域留名</p>
-<p>以下是我看过的，其中喜欢的，收集起来，以后有喜欢的还会添加，部分遗忘</p>
+        <h1 id="银⾏转账案例界⾯"><a href="#银⾏转账案例界⾯" class="headerlink" title="银⾏转账案例界⾯"></a>银⾏转账案例界⾯</h1><p><img src="/images/spring/spring-11.png"></p>
 <span id="more"></span>
+<h1 id="银⾏转账案例表结构"><a href="#银⾏转账案例表结构" class="headerlink" title="银⾏转账案例表结构"></a>银⾏转账案例表结构</h1><p><img src="/images/spring/spring-12.png"></p>
+<h1 id="银⾏转账案例代码调⽤关系"><a href="#银⾏转账案例代码调⽤关系" class="headerlink" title="银⾏转账案例代码调⽤关系"></a>银⾏转账案例代码调⽤关系</h1><p><img src="/images/spring/spring-13.png"></p>
+<h1 id="银⾏转账案例关键代码"><a href="#银⾏转账案例关键代码" class="headerlink" title="银⾏转账案例关键代码"></a>银⾏转账案例关键代码</h1><p><strong>TransferServlet</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.servlet;</span><br><span class="line">import com.lagou.edu.service.impl.TransferServiceImpl;</span><br><span class="line">import com.lagou.edu.utils.JsonUtils;</span><br><span class="line">import com.lagou.edu.pojo.Result;</span><br><span class="line">import com.lagou.edu.service.TransferService;</span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">/**</span><br><span class="line">* @author </span><br><span class="line">*/</span><br><span class="line">@WebServlet(name=&quot;transferServlet&quot;,urlPatterns = &quot;/transferServlet&quot;)</span><br><span class="line">public class TransferServlet extends HttpServlet &#123;</span><br><span class="line">    // 1. 实例化service层对象</span><br><span class="line">    private TransferService transferService = new TransferServiceImpl();</span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        doPost(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        // 设置请求体的字符编码</span><br><span class="line">        req.setCharacterEncoding(&quot;UTF-8&quot;);</span><br><span class="line">        String fromCardNo = req.getParameter(&quot;fromCardNo&quot;);</span><br><span class="line">        String toCardNo = req.getParameter(&quot;toCardNo&quot;);</span><br><span class="line">        String moneyStr = req.getParameter(&quot;money&quot;);</span><br><span class="line">        int money = Integer.parseInt(moneyStr);</span><br><span class="line">        Result result = new Result();</span><br><span class="line">        try &#123;</span><br><span class="line">            // 2. 调⽤service层⽅法</span><br><span class="line">            transferService.transfer(fromCardNo,toCardNo,money);</span><br><span class="line">            result.setStatus(&quot;200&quot;);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            result.setStatus(&quot;201&quot;);</span><br><span class="line">            result.setMessage(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        // 响应</span><br><span class="line">        resp.setContentType(&quot;application/json;charset=utf-8&quot;);</span><br><span class="line">        resp.getWriter().print(JsonUtils.object2Json(result));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>TransferService接⼝及实现类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.service;</span><br><span class="line">/**</span><br><span class="line">* @author </span><br><span class="line">*/</span><br><span class="line">public interface TransferService &#123;</span><br><span class="line">    void transfer(String fromCardNo,String toCardNo,int money) throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.service.impl;</span><br><span class="line">import com.lagou.edu.dao.AccountDao;</span><br><span class="line">import com.lagou.edu.dao.impl.JdbcAccountDaoImpl;</span><br><span class="line">import com.lagou.edu.pojo.Account;</span><br><span class="line">import com.lagou.edu.service.TransferService;</span><br><span class="line">/**</span><br><span class="line">* @author </span><br><span class="line">*/</span><br><span class="line">public class TransferServiceImpl implements TransferService &#123;</span><br><span class="line">    private AccountDao accountDao = new JdbcAccountDaoImpl();</span><br><span class="line">    @Override</span><br><span class="line">    public void transfer(String fromCardNo, String toCardNo, int money) throws Exception &#123;</span><br><span class="line">        Account from = accountDao.queryAccountByCardNo(fromCardNo);</span><br><span class="line">        Account to = accountDao.queryAccountByCardNo(toCardNo);</span><br><span class="line">        from.setMoney(from.getMoney()-money);</span><br><span class="line">        to.setMoney(to.getMoney()+money);</span><br><span class="line">        accountDao.updateAccountByCardNo(from);</span><br><span class="line">        accountDao.updateAccountByCardNo(to);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="电视剧"><a href="#电视剧" class="headerlink" title="电视剧"></a>电视剧</h1><pre><code>毒牙
-非自然死亡(日剧)
-校阅部女孩河野悦子(日剧)
-失恋巧克力职人(日剧)
-甄嬛传(国剧)
-琅琊榜
-乱世三义
-新上海滩
-亮剑(老版)
-浅情人不知(国剧)
-新白娘子传奇(国剧)
-倚天屠龙记
-射雕英雄传
-神雕侠侣
-笑傲江湖
-不死法医
-权力的游戏
-白夜追凶
-一起同过窗系列
-朝五晚九：和尚爱上我
-微微一笑很倾城
-姗姗来了(姗姗来迟)
-海派甜心
-我的青春谁做主
-猎场
-潜伏
-人民的名义
-月之酒店(德鲁纳酒店)
-我的大叔(韩国，李知恩)
-来自星星的你
-孤单又灿烂的神：鬼怪
-内在美
-秘密花园
-奇皇后
-医疗船
-w-两个世界
-Doctor异乡人
-匹诺曹
-太阳的主君
-杀之
-七个我
-阿尔罕布拉宫的回忆
-不是机器人啊
-觉醒年代
-咱们结婚吧
-超人
-</code></pre>
-<h1 id="电影"><a href="#电影" class="headerlink" title="电影"></a>电影</h1><pre><code>周星驰电影系列
-流浪地球
-我不是药神
-复仇者联盟系列
-悟空传
-盗梦空间
-新*哥斯拉
-第九区
-当幸福来敲门
-龙门客栈
-黄飞鸿狮王争霸
-让子弹飞
-非诚勿扰
-生化危机系列
-我的1919    
-天下无贼
-一个人的武林
-恐怖游轮
-与神同行
-我叫李焕英
-我和我的父辈
-肖申克的救赎
-</code></pre>
-<h1 id="网络爽文"><a href="#网络爽文" class="headerlink" title="网络爽文"></a>网络爽文</h1><pre><code>异界之虫族无敌
-异常生物见闻录
-希灵帝国
-黎明之剑
-全职法师
-斗破苍穹
-斗罗大陆
-酒神阴阳冕
-神印王座
-无限恐怖
-食物链顶端的男人
-电影教师
-盘龙
-星辰变
-星戒
-完美世界
-神墓
-吞噬星空
-遮天
-大主宰
-寸芒
-九鼎记
-雪鹰领主
-恶魔就在身边
-孙猴子是我师弟
-我是救世主
-恐怖复苏（神秘复苏）
-我最喜欢诡异了
-成为圣人是一种什么体验
-唯一救世者
-</code></pre>
-<h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><pre><code>杨戬--人生长恨水长东
-资治通鉴（正在读）
-（关于狗的，忘记名称了）
-追影子的人
-明朝那些事
-三体
-海底两万里
-鲁滨逊漂流记
-吹牛大王历险记
-格林童话
-大话设计模式
-疯狂java讲义
-实战java程序设计
-毛泽东选集（正在读）
-史记（还没开始）
-</code></pre>
-<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><pre><code>全职猎人
-秦时明月系列
-武庚纪
-马丁的早晨
-虹猫蓝兔七侠传
-恐龙危机
-罪恶王冠
-海贼王
-火影忍者
-百变小樱魔法卡
-死神
-东京食尸鬼
-寄生兽
-进击的巨人
-恶魔高校
-末日时在做什么？有没有空？可以来拯救吗？
-画江湖系列
-镇魂街
-雾山五行
-杀手007
-灵笼
-国王排名（后面烂了）
-一拳超人
-关于我转生变成史莱姆这档事
-间谍过家家
-</code></pre>
-<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><pre><code>GTA5
-战神
-只狼 影逝二度
-王国保卫战
-植物大战僵尸
-保卫萝卜
-虐杀原形
-生化危机系列
-星际争霸
-魔兽争霸
-红警
-守望先锋
-英雄联盟
-王者荣耀
-海岛奇兵
-部落冲突
-文明
-鬼泣5
-经典中国象棋
-奥日与黑暗森林
-奥日与萤火意志
-怪物猎人
-地平线：零之曙光
-美丽水世界
-花园战争
-底特律：变人
-神秘海域1-4
-舞力全开
-</code></pre>
-<h1 id="明星"><a href="#明星" class="headerlink" title="明星"></a>明星</h1><pre><code>邓紫棋
-胡歌
-周星驰
-黄海波
-黄勃
-张一山
-孙红雷
-李知恩
-河智苑
-刘亦菲
-</code></pre>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><pre><code>https://app.xunjiepdf.com/  pdf转world
+<p><strong>AccountDao层接⼝及基于Jdbc的实现类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.dao;</span><br><span class="line">import com.lagou.edu.pojo.Account;</span><br><span class="line">/**</span><br><span class="line">* @author  </span><br><span class="line">*/</span><br><span class="line">public interface AccountDao &#123;</span><br><span class="line">    Account queryAccountByCardNo(String cardNo) throws Exception;</span><br><span class="line">    int updateAccountByCardNo(Account account) throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>JdbcAccountDaoImpl（Jdbc技术实现Dao层接⼝）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.dao.impl;</span><br><span class="line">import com.lagou.edu.pojo.Account;</span><br><span class="line">import com.lagou.edu.dao.AccountDao;</span><br><span class="line">import com.lagou.edu.utils.DruidUtils;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">/**</span><br><span class="line"> * @author  </span><br><span class="line"> */</span><br><span class="line">public class JdbcAccountDaoImpl implements AccountDao &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Account queryAccountByCardNo(String cardNo) throws Exception &#123;</span><br><span class="line">        //从连接池获取连接</span><br><span class="line">        Connection con = DruidUtils.getInstance().getConnection();</span><br><span class="line">        String sql = &quot;select * from account where cardNo=?&quot;;</span><br><span class="line">        PreparedStatement preparedStatement = con.prepareStatement(sql);</span><br><span class="line">        preparedStatement.setString(1,cardNo);</span><br><span class="line">        ResultSet resultSet = preparedStatement.executeQuery();</span><br><span class="line">        Account account = new Account();</span><br><span class="line">        while(resultSet.next()) &#123;</span><br><span class="line">            account.setCardNo(resultSet.getString(&quot;cardNo&quot;));</span><br><span class="line">            account.setName(resultSet.getString(&quot;name&quot;));</span><br><span class="line">            account.setMoney(resultSet.getInt(&quot;money&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">        resultSet.close();</span><br><span class="line">        preparedStatement.close();</span><br><span class="line">        con.close();</span><br><span class="line">        return account;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public int updateAccountByCardNo(Account account) throws Exception &#123;</span><br><span class="line">        //从连接池获取连接</span><br><span class="line">        Connection con = DruidUtils.getInstance().getConnection();</span><br><span class="line">        String sql = &quot;update account set money=? where cardNo=?&quot;;</span><br><span class="line">        PreparedStatement preparedStatement = con.prepareStatement(sql);</span><br><span class="line">        preparedStatement.setInt(1,account.getMoney());</span><br><span class="line">        preparedStatement.setString(2,account.getCardNo());</span><br><span class="line">        int i = preparedStatement.executeUpdate();</span><br><span class="line">        preparedStatement.close();</span><br><span class="line">        con.close();</span><br><span class="line">        return i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="银⾏转账案例代码问题分析"><a href="#银⾏转账案例代码问题分析" class="headerlink" title="银⾏转账案例代码问题分析"></a>银⾏转账案例代码问题分析</h1><p><img src="/images/spring/spring-14.png"></p>
+<ul>
+<li>问题⼀：在上述案例实现中，service 层实现类在使⽤ dao 层对象时，直接在TransferServiceImpl 中通过 AccountDao accountDao = new JdbcAccountDaoImpl() 获得了 dao层对象，然⽽⼀个 new 关键字却将 TransferServiceImpl 和 dao 层具体的⼀个实现类JdbcAccountDaoImpl 耦合在了⼀起，如果说技术架构发⽣⼀些变动，dao 层的实现要使⽤其它技术，⽐如 Mybatis，思考切换起来的成本？每⼀个 new 的地⽅都需要修改源代码，重新编译，⾯向接⼝开发的意义将⼤打折扣？</li>
+<li>问题⼆：service 层代码没有竟然还没有进⾏事务控制 ？！如果转账过程中出现异常，将可能导致数据库数据错乱，后果可能会很严重，尤其在⾦融业务。<h1 id="问题解决思路"><a href="#问题解决思路" class="headerlink" title="问题解决思路"></a>问题解决思路</h1></li>
+<li>针对问题⼀思考：<ul>
+<li>实例化对象的⽅式除了 new 之外，还有什么技术？反射 (需要把类的全限定类名配置在xml中)</li>
+</ul>
+</li>
+<li>考虑使⽤设计模式中的⼯⼚模式解耦合，另外项⽬中往往有很多对象需要实例化，那就在⼯⼚中使⽤反 射技术实例化对象，⼯⼚模式很合适</li>
+</ul>
+<p><img src="/images/spring/spring-15.png"></p>
+<ul>
+<li>更进⼀步，代码中能否只声明所需实例的接⼝类型，不出现 new 也不出现⼯⼚类的字眼，如下？ 能！声明⼀个变量并提供 set ⽅法，在反射的时候将所需要的对象注⼊进去吧<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TransferServiceImpl implements TransferService &#123;</span><br><span class="line"></span><br><span class="line">    // 仅仅声明dao层接口</span><br><span class="line">    private AccountDao accountDao;</span><br><span class="line"></span><br><span class="line">    // 提供set方法供外部注入dao层实现类对象</span><br><span class="line">    public void setAccountDao(AccountDao accountDao) &#123;</span><br><span class="line">        this.accountDao = accountDao;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>针对问题⼆思考：<ul>
+<li>service 层没有添加事务控制，怎么办？没有事务就添加上事务控制，⼿动控制 JDBC 的Connection 事务，但要注意将Connection和当前线程绑定（即保证⼀个线程只有⼀个Connection，这样操作才针对的是同⼀个 Connection，进⽽控制的是同⼀个事务）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/spring/spring-16.png"></p>
+<h1 id="案例代码改造"><a href="#案例代码改造" class="headerlink" title="案例代码改造"></a>案例代码改造</h1><h2 id="针对问题⼀的代码改造"><a href="#针对问题⼀的代码改造" class="headerlink" title="针对问题⼀的代码改造"></a>针对问题⼀的代码改造</h2><p><strong>beans.xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean id=&quot;transferService&quot; class=&quot;com.lagou.edu.service.impl.TransferServiceImpl&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;AccountDao&quot; ref=&quot;accountDao&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;accountDao&quot; class=&quot;com.lagou.edu.dao.impl.JdbcAccountDaoImpl&quot;&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>增加 BeanFactory.java</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.factory;</span><br><span class="line">import org.dom4j.Document;</span><br><span class="line">import org.dom4j.DocumentException;</span><br><span class="line">import org.dom4j.Element;</span><br><span class="line">import org.dom4j.io.SAXReader;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.lang.reflect.InvocationTargetException;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">/**</span><br><span class="line"> * @author  </span><br><span class="line"> */</span><br><span class="line">public class BeanFactory &#123;</span><br><span class="line">    /**</span><br><span class="line">     * ⼯⼚类的两个任务</span><br><span class="line">     * 任务⼀：加载解析xml，读取xml中的bean信息，通过反射技术实例化bean对象，然后放⼊</span><br><span class="line">     map待⽤</span><br><span class="line">     * 任务⼆：提供接⼝⽅法根据id从map中获取bean（静态⽅法）</span><br><span class="line">     */</span><br><span class="line">    private static Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">    static &#123;</span><br><span class="line">        InputStream resourceAsStream = BeanFactory.class.getClassLoader().getResourceAsStream(&quot;beans.xml&quot;);</span><br><span class="line">        SAXReader saxReader = new SAXReader();</span><br><span class="line">        try &#123;</span><br><span class="line">            Document document = saxReader.read(resourceAsStream);</span><br><span class="line">            Element rootElement = document.getRootElement();</span><br><span class="line">            List&lt;Element&gt; list = rootElement.selectNodes(&quot;//bean&quot;);</span><br><span class="line">            // 实例化bean对象</span><br><span class="line">            for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line">                Element element = list.get(i);</span><br><span class="line">                String id = element.attributeValue(&quot;id&quot;);</span><br><span class="line">                String clazz = element.attributeValue(&quot;class&quot;);</span><br><span class="line">                Class&lt;?&gt; aClass = Class.forName(clazz);</span><br><span class="line">                Object o = aClass.newInstance();</span><br><span class="line">                map.put(id,o);</span><br><span class="line">            &#125;</span><br><span class="line">            // 维护bean之间的依赖关系</span><br><span class="line">            List&lt;Element&gt; propertyNodes = rootElement.selectNodes(&quot;//property&quot;);</span><br><span class="line">            for (int i = 0; i &lt; propertyNodes.size(); i++) &#123;</span><br><span class="line">                Element element = propertyNodes.get(i);</span><br><span class="line">                // 处理property元素</span><br><span class="line">                String name = element.attributeValue(&quot;name&quot;);</span><br><span class="line">                String ref = element.attributeValue(&quot;ref&quot;);</span><br><span class="line">                String parentId = element.getParent().attributeValue(&quot;id&quot;);</span><br><span class="line">                Object parentObject = map.get(parentId);</span><br><span class="line">                Method[] methods = parentObject.getClass().getMethods();</span><br><span class="line">                for (int j = 0; j &lt; methods.length; j++) &#123;</span><br><span class="line">                    Method method = methods[j];</span><br><span class="line">                    if((&quot;set&quot; + name).equalsIgnoreCase(method.getName()))</span><br><span class="line">                    &#123;</span><br><span class="line">                        // bean之间的依赖关系（注⼊bean）</span><br><span class="line">                        Object propertyObject = map.get(ref);</span><br><span class="line">                        method.invoke(parentObject,propertyObject);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                // 维护依赖关系后重新将bean放⼊map中</span><br><span class="line">                map.put(parentId,parentObject);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static Object getBean(String id) &#123;</span><br><span class="line">        return map.get(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>修改 TransferServlet</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(name=&quot;transferServlet&quot;,urlPatterns = &quot;/transferServlet&quot;)</span><br><span class="line">public class TransferServlet extends HttpServlet &#123;  </span><br><span class="line">    private TransferService transferService = (TransferService) webApplicationContext.getBean(&quot;transferService&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>修改 TransferServiceImpl</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TransferServiceImpl implements TransferService &#123;</span><br><span class="line"></span><br><span class="line">    // 仅仅声明dao层接口</span><br><span class="line">    private AccountDao accountDao;</span><br><span class="line"></span><br><span class="line">    // 提供set方法供外部注入dao层实现类对象</span><br><span class="line">    public void setAccountDao(AccountDao accountDao) &#123;</span><br><span class="line">        this.accountDao = accountDao;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="针对问题⼆的改造"><a href="#针对问题⼆的改造" class="headerlink" title="针对问题⼆的改造"></a>针对问题⼆的改造</h2><p><strong>增加 ConnectionUtils</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.utils;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">/**</span><br><span class="line"> * @author </span><br><span class="line"> */</span><br><span class="line">public class ConnectionUtils &#123;</span><br><span class="line">    /*private ConnectionUtils() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    private static ConnectionUtils connectionUtils = new ConnectionUtils();</span><br><span class="line">    public static ConnectionUtils getInstance() &#123;</span><br><span class="line">    return connectionUtils;</span><br><span class="line">    &#125;*/</span><br><span class="line">    private ThreadLocal&lt;Connection&gt; threadLocal = new ThreadLocal&lt;&gt;(); //</span><br><span class="line">    存储当前线程的连接</span><br><span class="line">    /**</span><br><span class="line">     * 从当前线程获取连接</span><br><span class="line">     */</span><br><span class="line">    public Connection getCurrentThreadConn() throws SQLException &#123;</span><br><span class="line">        /**</span><br><span class="line">         * 判断当前线程中是否已经绑定连接，如果没有绑定，需要从连接池获取⼀个连接绑定到</span><br><span class="line">         当前线程</span><br><span class="line">         */</span><br><span class="line">        Connection connection = threadLocal.get();</span><br><span class="line">        if(connection == null) &#123;</span><br><span class="line">            // 从连接池拿连接并绑定到线程</span><br><span class="line">            connection = DruidUtils.getInstance().getConnection();</span><br><span class="line">            // 绑定到当前线程</span><br><span class="line">            threadLocal.set(connection);</span><br><span class="line">        &#125;</span><br><span class="line">        return connection;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>增加 TransactionManager 事务管理器类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.utils;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">/**</span><br><span class="line"> * @author  </span><br><span class="line"> */</span><br><span class="line">public class TransactionManager &#123;</span><br><span class="line">    private ConnectionUtils connectionUtils;</span><br><span class="line">    public void setConnectionUtils(ConnectionUtils connectionUtils) &#123;</span><br><span class="line">        this.connectionUtils = connectionUtils;</span><br><span class="line">    &#125;</span><br><span class="line">    // 开启事务</span><br><span class="line">    public void beginTransaction() throws SQLException &#123;</span><br><span class="line">        connectionUtils.getCurrentThreadConn().setAutoCommit(false);</span><br><span class="line">    &#125;</span><br><span class="line">    // 提交事务</span><br><span class="line">    public void commit() throws SQLException &#123;</span><br><span class="line">        connectionUtils.getCurrentThreadConn().commit();</span><br><span class="line">    &#125;</span><br><span class="line">    // 回滚事务</span><br><span class="line">    public void rollback() throws SQLException &#123;</span><br><span class="line">        connectionUtils.getCurrentThreadConn().rollback();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>增加 ProxyFactory 代理⼯⼚类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.factory;</span><br><span class="line"></span><br><span class="line">import com.lagou.edu.utils.TransactionManager;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.InvocationHandler;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author  </span><br><span class="line"> */</span><br><span class="line">public class ProxyFactory &#123;</span><br><span class="line">    private TransactionManager transactionManager;</span><br><span class="line"></span><br><span class="line">    public void setTransactionManager(TransactionManager transactionManager) &#123;</span><br><span class="line">        this.transactionManager = transactionManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Object getProxy(Object target) &#123;</span><br><span class="line">        return Proxy.newProxyInstance(this.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">                        Object result = null;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            // 开启事务</span><br><span class="line">                            transactionManager.beginTransaction();</span><br><span class="line">                            // 调⽤原有业务逻辑</span><br><span class="line">                            result = method.invoke(target, args);</span><br><span class="line">                            // 提交事务</span><br><span class="line">                            transactionManager.commit();</span><br><span class="line">                        &#125; catch (Exception e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                            // 回滚事务</span><br><span class="line">                            transactionManager.rollback();</span><br><span class="line">                            // 异常向上抛出,便于servlet中捕获</span><br><span class="line">                            throw e.getCause();</span><br><span class="line">                        &#125;</span><br><span class="line">                        return result;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>修改 beans.xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!--跟标签beans，⾥⾯配置⼀个⼜⼀个的bean⼦标签，每⼀个bean⼦标签都代表⼀个类的配置--&gt;</span><br><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;!--id标识对象，class是类的全限定类名--&gt;</span><br><span class="line">    &lt;bean id=&quot;accountDao&quot; class=&quot;com.lagou.edu.dao.impl.JdbcAccountDaoImpl&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;ConnectionUtils&quot; ref=&quot;connectionUtils&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;transferService&quot; class=&quot;com.lagou.edu.service.impl.TransferServiceImpl&quot;&gt;</span><br><span class="line">        &lt;!--set+ name 之后锁定到传值的set⽅法了，通过反射技术可以调⽤该⽅法传⼊对应的值--&gt;</span><br><span class="line">        &lt;property name=&quot;AccountDao&quot; ref=&quot;accountDao&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;!--配置新增的三个Bean--&gt;</span><br><span class="line">    &lt;bean id=&quot;connectionUtils&quot; class=&quot;com.lagou.edu.utils.ConnectionUtils&quot;&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;!--事务管理器--&gt;</span><br><span class="line">    &lt;bean id=&quot;transactionManager&quot; class=&quot;com.lagou.edu.utils.TransactionManager&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;ConnectionUtils&quot; ref=&quot;connectionUtils&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;!--代理对象⼯⼚--&gt;</span><br><span class="line">    &lt;bean id=&quot;proxyFactory&quot; class=&quot;com.lagou.edu.factory.ProxyFactory&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;TransactionManager&quot; ref=&quot;transactionManager&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>修改 JdbcAccountDaoImpl</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.dao.impl;</span><br><span class="line">import com.lagou.edu.pojo.Account;</span><br><span class="line">import com.lagou.edu.dao.AccountDao;</span><br><span class="line">import com.lagou.edu.utils.ConnectionUtils;</span><br><span class="line">import com.lagou.edu.utils.DruidUtils;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.PreparedStatement;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">/**</span><br><span class="line"> * @author  </span><br><span class="line"> */</span><br><span class="line">public class JdbcAccountDaoImpl implements AccountDao &#123;</span><br><span class="line">    private ConnectionUtils connectionUtils;</span><br><span class="line">    public void setConnectionUtils(ConnectionUtils connectionUtils) &#123;</span><br><span class="line">        this.connectionUtils = connectionUtils;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public Account queryAccountByCardNo(String cardNo) throws Exception &#123;</span><br><span class="line">        //从连接池获取连接</span><br><span class="line">        // Connection con = DruidUtils.getInstance().getConnection();</span><br><span class="line">        Connection con = connectionUtils.getCurrentThreadConn();</span><br><span class="line">        String sql = &quot;select * from account where cardNo=?&quot;;</span><br><span class="line">        PreparedStatement preparedStatement = con.prepareStatement(sql);</span><br><span class="line">        preparedStatement.setString(1,cardNo);</span><br><span class="line">        ResultSet resultSet = preparedStatement.executeQuery();</span><br><span class="line">        Account account = new Account();</span><br><span class="line">        while(resultSet.next()) &#123;</span><br><span class="line">            account.setCardNo(resultSet.getString(&quot;cardNo&quot;));</span><br><span class="line">            account.setName(resultSet.getString(&quot;name&quot;));</span><br><span class="line">            account.setMoney(resultSet.getInt(&quot;money&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">        resultSet.close();</span><br><span class="line">        preparedStatement.close();</span><br><span class="line">        //con.close();</span><br><span class="line">        return account;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int updateAccountByCardNo(Account account) throws Exception &#123;</span><br><span class="line">        // 从连接池获取连接</span><br><span class="line">        // 改造为：从当前线程当中获取绑定的connection连接</span><br><span class="line">        //Connection con = DruidUtils.getInstance().getConnection();</span><br><span class="line">        Connection con = connectionUtils.getCurrentThreadConn();</span><br><span class="line">        String sql = &quot;update account set money=? where cardNo=?&quot;;</span><br><span class="line">        PreparedStatement preparedStatement = con.prepareStatement(sql);</span><br><span class="line">        preparedStatement.setInt(1,account.getMoney());</span><br><span class="line">        preparedStatement.setString(2,account.getCardNo());</span><br><span class="line">        int i = preparedStatement.executeUpdate();</span><br><span class="line">        preparedStatement.close();</span><br><span class="line">        //con.close();</span><br><span class="line">        return i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>修改 TransferServlet</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">package com.lagou.edu.servlet;</span><br><span class="line"></span><br><span class="line">import com.lagou.edu.factory.BeanFactory;</span><br><span class="line">import com.lagou.edu.factory.ProxyFactory;</span><br><span class="line">import com.lagou.edu.service.impl.TransferServiceImpl;</span><br><span class="line">import com.lagou.edu.utils.JsonUtils;</span><br><span class="line">import com.lagou.edu.pojo.Result;</span><br><span class="line">import com.lagou.edu.service.TransferService;</span><br><span class="line"></span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author 应癫</span><br><span class="line"> */</span><br><span class="line">@WebServlet(name = &quot;transferServlet&quot;, urlPatterns = &quot;/transferServlet&quot;)</span><br><span class="line">public class TransferServlet extends HttpServlet &#123;</span><br><span class="line">    // 1. 实例化service层对象</span><br><span class="line">    //private TransferService transferService = new TransferServiceImpl();</span><br><span class="line">    //private TransferService transferService = (TransferService)BeanFactory.getBean(&quot;transferService&quot;);</span><br><span class="line">    // 从⼯⼚获取委托对象（委托对象是增强了事务控制的功能）</span><br><span class="line">    // ⾸先从BeanFactory获取到proxyFactory代理⼯⼚的实例化对象</span><br><span class="line">    private ProxyFactory proxyFactory = (ProxyFactory)BeanFactory.getBean(&quot;proxyFactory&quot;);</span><br><span class="line">    private TransferService transferService = (TransferService)proxyFactory.getJdkProxy(BeanFactory.getBean(&quot;transferService&quot;));</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        // 设置请求体的字符编码</span><br><span class="line">        req.setCharacterEncoding(&quot;UTF-8&quot;);</span><br><span class="line">        String fromCardNo = req.getParameter(&quot;fromCardNo&quot;);</span><br><span class="line">        String toCardNo = req.getParameter(&quot;toCardNo&quot;);</span><br><span class="line">        String moneyStr = req.getParameter(&quot;money&quot;);</span><br><span class="line">        int money = Integer.parseInt(moneyStr);</span><br><span class="line">        Result result = new Result();</span><br><span class="line">        try &#123;</span><br><span class="line">            // 2. 调⽤service层⽅法</span><br><span class="line">            transferService.transfer(fromCardNo, toCardNo, money);</span><br><span class="line">            result.setStatus(&quot;200&quot;);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            result.setStatus(&quot;201&quot;);</span><br><span class="line">            result.setMessage(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        // 响应</span><br><span class="line">        resp.setContentType(&quot;application/json;charset=utf-8&quot;);</span><br><span class="line">        resp.getWriter().print(JsonUtils.object2Json(result));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-https://juejin.im/timeline
-
-https://leetcode-cn.com/problemset/all/
-
-https://www.jiumodiary.com/
-</code></pre>
 
       
       
@@ -411,11 +280,23 @@ https://www.jiumodiary.com/
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">收集</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">介绍</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块二</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring源码分析</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IOC容器设计实现</a>
         		</li>
       		
 		</ul>
@@ -471,7 +352,7 @@ https://www.jiumodiary.com/
   <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
   <p>扫一扫，分享到微信</p>
   <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/06/29/%E6%94%B6%E9%9B%86/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/" alt="微信分享二维码">
   </div>
 </div>
 
@@ -485,18 +366,18 @@ https://www.jiumodiary.com/
   
 <nav id="article-nav">
   
-    <a href="/2022/06/30/%E7%AC%AC%E2%BC%80%E9%83%A8%E5%88%86%EF%BC%9ASpring%E6%A6%82%E8%BF%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/06/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93%EF%BC%9A%E5%9C%B0%E7%90%83%E5%BE%80%E4%BA%8B%E3%80%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          第⼀部分：Spring概述
+          读《三体：地球往事》
         
       </div>
     </a>
   
   
-    <a href="/2022/06/28/MyBatis-Plus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MyBatis-Plus快速入门</div>
+    <a href="/2022/07/03/%E8%AF%BB%E3%80%8A%E6%9D%A8%E6%88%AC-%E4%BA%BA%E7%94%9F%E9%95%BF%E6%81%A8%E6%B0%B4%E9%95%BF%E4%B8%9C%E3%80%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">读《杨戬--人生长恨水长东》</div>
       <i class="icon-circle-right"></i>
     </a>
   
