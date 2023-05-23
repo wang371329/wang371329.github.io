@@ -228,7 +228,7 @@
 
 
 
-  
+      
     <article id="post-分布式缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -306,7 +306,7 @@
 
 
 
-  
+      
     <article id="post-精彩绝伦的一天-2023年1月30日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -388,7 +388,7 @@
 
 
 
-  
+      
     <article id="post-stream-peek" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -465,7 +465,7 @@
 
 
 
-  
+      
     <article id="post-获取客户端访问地址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,7 +547,7 @@
 
 
 
-  
+      
     <article id="post-获取本机ip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -629,7 +629,7 @@
 
 
 
-  
+      
     <article id="post-2022-11-29梦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -711,7 +711,7 @@
 
 
 
-  
+      
     <article id="post-oss视频切片上传与读取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -793,7 +793,7 @@
 
 
 
-  
+      
     <article id="post-mysql我的好友功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -830,7 +830,7 @@
 <td>collection_id</td>
 </tr>
 </tbody></table>
-<h2 id="sql语句"><a href="#sql语句" class="headerlink" title="sql语句"></a>sql语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.user_id,a.collection_id from ln_collection a inner join ln_collection b on a.collection_id = b.user_id and a.user_id = b.collection_id where a.user_id = #&#123;userId&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="sql语句"><a href="#sql语句" class="headerlink" title="sql语句"></a>sql语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.user_id,a.collection_id <span class="keyword">from</span> ln_collection a <span class="keyword">inner</span> <span class="keyword">join</span> ln_collection b <span class="keyword">on</span> a.collection_id <span class="operator">=</span> b.user_id <span class="keyword">and</span> a.user_id <span class="operator">=</span> b.collection_id <span class="keyword">where</span> a.user_id <span class="operator">=</span> #&#123;userId&#125;</span><br></pre></td></tr></table></figure>
       
       
       
@@ -886,7 +886,7 @@
 
 
 
-  
+      
     <article id="post-java时间处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -909,13 +909,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>获取某月第一天与最后一天</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 获取某月第一天与最后一天</span><br><span class="line">*</span><br><span class="line">* @param</span><br><span class="line">* @return</span><br><span class="line">*/</span><br><span class="line">public static Map getAfterAndEnd(Date date) &#123;</span><br><span class="line">    Map&lt;String,Date&gt; map = new HashMap();</span><br><span class="line">    LocalDate localDate = date.toInstant()</span><br><span class="line">            .atZone(ZoneId.systemDefault())    //设置当前系统时区</span><br><span class="line">            .toLocalDate();</span><br><span class="line">    LocalDate firstDay = localDate.with(TemporalAdjusters.firstDayOfMonth()); // 获取当前月的第一天</span><br><span class="line">    LocalDate lastDay = localDate.with(TemporalAdjusters.lastDayOfMonth()); // 获取当前月的最后一天</span><br><span class="line">    Date firstDate = Date.from(firstDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line">    Date lastDate = Date.from(lastDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line">//  map.put(&quot;firstDay&quot;, firstDay);//2022-09-01</span><br><span class="line">//  map.put(&quot;lastDay&quot;, lastDay);//2022-09-30</span><br><span class="line">    map.put(&quot;firstDate&quot;, firstDate);//Thu Sep 01 00:00:00 CST 2022</span><br><span class="line">    map.put(&quot;lastDate&quot;, lastDate);//Fri Sep 30 00:00:00 CST 2022</span><br><span class="line">    return map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 获取某月第一天与最后一天</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map <span class="title function_">getAfterAndEnd</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">    Map&lt;String,Date&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> date.toInstant()</span><br><span class="line">            .atZone(ZoneId.systemDefault())    <span class="comment">//设置当前系统时区</span></span><br><span class="line">            .toLocalDate();</span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">firstDay</span> <span class="operator">=</span> localDate.with(TemporalAdjusters.firstDayOfMonth()); <span class="comment">// 获取当前月的第一天</span></span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">lastDay</span> <span class="operator">=</span> localDate.with(TemporalAdjusters.lastDayOfMonth()); <span class="comment">// 获取当前月的最后一天</span></span><br><span class="line">    <span class="type">Date</span> <span class="variable">firstDate</span> <span class="operator">=</span> Date.from(firstDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line">    <span class="type">Date</span> <span class="variable">lastDate</span> <span class="operator">=</span> Date.from(lastDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line"><span class="comment">//  map.put(&quot;firstDay&quot;, firstDay);//2022-09-01</span></span><br><span class="line"><span class="comment">//  map.put(&quot;lastDay&quot;, lastDay);//2022-09-30</span></span><br><span class="line">    map.put(<span class="string">&quot;firstDate&quot;</span>, firstDate);<span class="comment">//Thu Sep 01 00:00:00 CST 2022</span></span><br><span class="line">    map.put(<span class="string">&quot;lastDate&quot;</span>, lastDate);<span class="comment">//Fri Sep 30 00:00:00 CST 2022</span></span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>获取后 N 月的日期</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获取后 N 月的日期</span><br><span class="line"> *</span><br><span class="line"> * @param</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public static Date getAfterDate(Date startDate, int month) &#123;</span><br><span class="line">    Calendar cal = Calendar.getInstance();</span><br><span class="line">    cal.setTime(startDate);</span><br><span class="line">    cal.add(Calendar.MONTH, month); //获取当前时间的后3个月</span><br><span class="line">    return cal.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取后 N 月的日期</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Date <span class="title function_">getAfterDate</span><span class="params">(Date startDate, <span class="type">int</span> month)</span> &#123;</span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">cal</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    cal.setTime(startDate);</span><br><span class="line">    cal.add(Calendar.MONTH, month); <span class="comment">//获取当前时间的后3个月</span></span><br><span class="line">    <span class="keyword">return</span> cal.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>java获取Date类型时间的前3个月，后3个月，前3天，后3天</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Calendar cal = Calendar.getInstance();</span><br><span class="line">Date date = new Date();</span><br><span class="line">cal.setTime(date);</span><br><span class="line">cal.add(Calendar.HOUR,-3); //获取当前时间的前3个小时</span><br><span class="line">cal.add(Calendar.MONTH,-3); //获取当前时间的前3个月</span><br><span class="line">cal.add(Calendar.HOUR,3); //获取当前时间的后三个小时</span><br><span class="line">cal.add(Calendar.MONTH,3); //获取当前时间的后3个月</span><br><span class="line">cal.add(Calendar.YEAR,-3);//获取当前时间的前3年</span><br><span class="line">cal.add(Calendar.YEAR,3);//获取当前时间 的后3年</span><br><span class="line">System.out.println(cal.getTime());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">cal</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">cal.setTime(date);</span><br><span class="line">cal.add(Calendar.HOUR,-<span class="number">3</span>); <span class="comment">//获取当前时间的前3个小时</span></span><br><span class="line">cal.add(Calendar.MONTH,-<span class="number">3</span>); <span class="comment">//获取当前时间的前3个月</span></span><br><span class="line">cal.add(Calendar.HOUR,<span class="number">3</span>); <span class="comment">//获取当前时间的后三个小时</span></span><br><span class="line">cal.add(Calendar.MONTH,<span class="number">3</span>); <span class="comment">//获取当前时间的后3个月</span></span><br><span class="line">cal.add(Calendar.YEAR,-<span class="number">3</span>);<span class="comment">//获取当前时间的前3年</span></span><br><span class="line">cal.add(Calendar.YEAR,<span class="number">3</span>);<span class="comment">//获取当前时间 的后3年</span></span><br><span class="line">System.out.println(cal.getTime());</span><br></pre></td></tr></table></figure>
 
       
       
@@ -968,13 +968,13 @@
 
 
 
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
-
+      
+        
+          <nav id="page-nav">
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+          </nav>
+          
+            
 
           </div>
         </div>
@@ -1104,14 +1104,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简介</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
@@ -1121,6 +1113,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">简介</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,11 +1224,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
