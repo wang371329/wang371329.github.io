@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>分布式缓存 | 懒人</title>
+  <title>分布式事务 | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="高并发环境下，例如典型的淘宝双11秒杀，几分钟内上亿的用户涌入淘宝，这个时候如果访问不加拦截，让大量的读写请求涌向数据库，由于磁盘的处理速度与内存显然不在一个量级，服务器马上就要宕机。从减轻数据库的压力和提高系统响应速度两个角度来考虑，都会在数据库之前加一层缓存，访问压力越大的，在缓存之前就开始 CDN 拦截图片等访问请求。 并且由于最早的单台机器的内存资源以及承载能力有限，如果大量使用本地缓存，">
+  <meta name="description" content="分布式事务是指事务的参与者，支持事务的服务器，资源服务器以及事务管理器分别位于分布式系统的不同节点之上。通常一个分布式事务中会涉及对多个数据源或业务系统的操作。分布式事务也可以被定义为一种嵌套型的事务，同时也就具有了ACID事务的特性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式缓存">
-<meta property="og:url" content="http://example.com/2023/05/22/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:title" content="分布式事务">
+<meta property="og:url" content="http://example.com/2023/02/03/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="懒人">
-<meta property="og:description" content="高并发环境下，例如典型的淘宝双11秒杀，几分钟内上亿的用户涌入淘宝，这个时候如果访问不加拦截，让大量的读写请求涌向数据库，由于磁盘的处理速度与内存显然不在一个量级，服务器马上就要宕机。从减轻数据库的压力和提高系统响应速度两个角度来考虑，都会在数据库之前加一层缓存，访问压力越大的，在缓存之前就开始 CDN 拦截图片等访问请求。 并且由于最早的单台机器的内存资源以及承载能力有限，如果大量使用本地缓存，">
+<meta property="og:description" content="分布式事务是指事务的参与者，支持事务的服务器，资源服务器以及事务管理器分别位于分布式系统的不同节点之上。通常一个分布式事务中会涉及对多个数据源或业务系统的操作。分布式事务也可以被定义为一种嵌套型的事务，同时也就具有了ACID事务的特性。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-22T02:04:28.000Z">
-<meta property="article:modified_time" content="2023-05-22T02:08:27.637Z">
+<meta property="article:published_time" content="2023-02-03T03:38:39.000Z">
+<meta property="article:modified_time" content="2023-05-23T03:39:39.177Z">
 <meta property="article:author" content="懒人">
 <meta property="article:tag" content="分布式">
 <meta name="twitter:card" content="summary">
@@ -155,7 +155,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-分布式缓存" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-分布式事务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -163,67 +163,66 @@
         
   
     <h1 class="article-title" itemprop="name">
-      分布式缓存
+      分布式事务
     </h1>
   
 
         
-        <a href="/2023/05/22/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2023-05-22T02:04:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
+        <a href="/2023/02/03/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2023-02-03T03:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>高并发环境下，例如典型的淘宝双11秒杀，几分钟内上亿的用户涌入淘宝，这个时候如果访问不加拦截，让大量的读写请求涌向数据库，由于磁盘的处理速度与内存显然不在一个量级，服务器马上就要宕机。<strong>从减轻数据库的压力和提高系统响应速度两个角度来考虑，都会在数据库之前加一层缓存</strong>，访问压力越大的，在缓存之前就开始 CDN 拦截图片等访问请求。</p>
-<p>并且由于最早的单台机器的内存资源以及承载能力有限，如果大量使用本地缓存，也会使相同的数据被不同的节点存储多份，对内存资源造成较大的浪费，因此，才催生出了分布式缓存。</p>
+        <p>分布式事务是指事务的参与者，支持事务的服务器，资源服务器以及事务管理器分别位于分布式系统的不同节点之上。通常一个分布式事务中会涉及对多个数据源或业务系统的操作。分布式事务也可以被定义为一种嵌套型的事务，同时也就具有了ACID事务的特性。</p>
 <span id="more"></span>
 
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
-<li><strong>页面缓存</strong>：用来缓存Web 页面的内容片段,包括HTML、CSS 和图片等;</li>
-<li><strong>应用对象缓存</strong>：缓存系统作为ORM 框架的二级缓存对外提供服务,目的是减轻数据库的负载压力,加速应用访问;解决分布式Web部署的 session 同步问题，状态缓存.缓存包括Session 会话状态及应用横向扩展时的状态数据等,这类数据一般是难以恢复的,对可用性要求较高,多应用于高可用集群。</li>
-<li><strong>并行处理</strong>：通常涉及大量中间计算结果需要共享;</li>
-<li><strong>云计算领域提供分布式缓存服务</strong></li>
-</ol>
-<h2 id="缓存常见的问题"><a href="#缓存常见的问题" class="headerlink" title="缓存常见的问题"></a>缓存常见的问题</h2><h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><p>缓存穿透是指查询一个<strong>不存在的数据</strong>，由于缓存是不命中时被动写的，如果从DB查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到DB去查询，失去了缓存的意义。在流量大时，可能DB就挂掉了。</p>
+<h2 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h2><p>Consistency(一致性)：数据一致更新，所有数据变动都是同步的（强一致性）。</p>
+<p>Availability(可用性)：好的响应性能</p>
+<p>Partition tolerance(分区容错性) ：可靠性</p>
+<p>定理：任何分布式系统只可同时满足二点，没法三者兼顾。</p>
+<p>CA系统（放弃P）：指将所有数据（或者仅仅是那些与事务相关的数据）都放在一个分布式节点上，就不会存在网络分区。所以强一致性以及可用性得到满足。</p>
+<p>CP系统（放弃A）：如果要求数据在各个服务器上是强一致的，然而网络分区会导致同步时间无限延长，那么如此一来可用性就得不到保障了。坚持事务ACID（原子性、一致性、隔离性和持久性）的传统数据库以及对结果一致性非常敏感的应用通常会做出这样的选择。</p>
+<p>AP系统（放弃C）：这里所说的放弃一致性，并不是完全放弃数据一致性，而是放弃数据的强一致性，而保留数据的最终一致性。如果即要求系统高可用又要求分区容错，那么就要放弃一致性了。因为一旦发生网络分区，节点之间将无法通信，为了满足高可用，每个节点只能用本地数据提供服务，这样就会导致数据不一致。一些遵守BASE原则数据库，（如：Cassandra、CouchDB等）往往会放宽对一致性的要求（满足最终一致性即可），一次来获取基本的可用性。</p>
+<h2 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h2><p>Basically Available基本可用：指分布式系统在出现不可预知的故障的时候，允许损失部分可用性——但不是系统不可用。</p>
+<p>响应时间上的损失：假如正常一个在线搜索0.5秒之内返回，但由于故障（机房断电或网络不通），查询结果的响应时间增加到1—2秒。功能上的损失：如果流量激增或者一个请求需要多个服务间配合，而此时有的服务发生了故障，这时需要进行服务降级，进而保护系统稳定性。</p>
+<p>Soft state软状态：允许系统在不同节点的数据副本之间进行数据同步的过程存在延迟。Eventually consistent最终一致：最终数据是一致的就可以了，而不是时时高一致。</p>
+<p>BASE思想主要强调基本的可用性，如果你需要High 可用性，也就是纯粹的高性能，那么就要以一致性或容错性为牺牲。</p>
+<h2 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h2><p>分布式事务的实现主要有以下 5 种方案：</p>
+<ul>
+<li>XA 方案</li>
+<li>TCC 方案</li>
+<li>可靠消息最终一致性方案</li>
+<li>最大努力通知方案</li>
+</ul>
+<h2 id="2PC-XA方案"><a href="#2PC-XA方案" class="headerlink" title="2PC/XA方案"></a>2PC/XA方案</h2><p>所谓的 XA 方案，即：两阶段提交，有一个事务管理器的概念，负责协调多个数据库（资源管理器）的事务，事务管理器先问问各个数据库你准备好了吗？如果每个数据库都回复 ok，那么就正式提交事务，在各个数据库上执行操作；如果任何其中一个数据库回答不 ok，那么就回滚事务。</p>
+<p>这种分布式事务方案，比较适合单块应用里，跨多个库的分布式事务，而且因为严重依赖于数据库层面来搞定复杂的事务，效率很低，绝对不适合高并发的场景。</p>
+<p>一般来说某个系统内部如果出现跨多个库的这么一个操作，是不合规的。如果你要操作别人的服务的库，你必须是通过调用别的服务的接口来实现，绝对不允许交叉访问别人的数据库。</p>
+<h2 id="TCC强一致性方案"><a href="#TCC强一致性方案" class="headerlink" title="TCC强一致性方案"></a>TCC强一致性方案</h2><p>TCC 的全称是：<code>Try</code>、<code>Confirm</code>、<code>Cancel</code>。</p>
+<ul>
+<li><strong>Try 阶段</strong>：这个阶段说的是对各个服务的资源做检测以及对资源进行 <strong>锁定或者预留</strong>。</li>
+<li><strong>Confirm 阶段</strong>：这个阶段说的是在各个服务中执行实际的操作。</li>
+<li><strong>Cancel 阶段</strong>：如果任何一个服务的业务方法执行出错，那么这里就需要 <strong>进行补偿</strong>，就是执行已经执行成功的业务逻辑的回滚操作。（把那些执行成功的回滚）</li>
+<li></li>
+</ul>
+<p>这种方案说实话几乎很少人使用，但是也有使用的场景。因为这个 <strong>事务回滚实际上是严重依赖于你自己写代码来回滚和补偿</strong> 了，会造成补偿代码巨大，非常之恶心。</p>
+<h2 id="可靠消息最终一致性方案"><a href="#可靠消息最终一致性方案" class="headerlink" title="可靠消息最终一致性方案"></a>可靠消息最终一致性方案</h2><p>基于 MQ 来实现事务。比如阿里的 RocketMQ 就支持消息事务。大概的意思就是：</p>
 <ol>
-<li><strong>缓存空值</strong>，不会查数据库。</li>
-<li>采用<strong>布隆过滤器</strong>，将所有可能存在的数据哈希到一个足够大的<code>bitmap</code>中，查询不存在的数据会被这个<code>bitmap</code>拦截掉，从而避免了对<code>DB</code>的查询压力。</li>
+<li>A 系统先发送一个 prepared 消息到 MQ，如果这个 prepared 消息发送失败那么就直接取消操作别执行了；</li>
+<li>如果这个消息发送成功过了，那么接着执行本地事务，如果成功就告诉 MQ 发送确认消息，如果失败就告诉 MQ 回滚消息；</li>
+<li>如果发送了确认消息，那么此时 B 系统会接收到确认消息，然后执行本地的事务；</li>
+<li>mq 会自动定时轮询所有 prepared 消息回调你的接口，问你，这个消息是不是本地事务处理失败了，所有没发送确认的消息，是继续重试还是回滚？一般来说这里你就可以查下数据库看之前本地事务是否执行，如果回滚了，那么这里也回滚吧。这个就是避免可能本地事务执行成功了，而确认消息却发送失败了。</li>
+<li>这个方案里，要是系统 B 的事务失败了咋办？重试咯，自动不断重试直到成功，如果实在是不行，要么就是针对重要的资金类业务进行回滚，比如 B 系统本地回滚后，想办法通知系统 A 也回滚；或者是发送报警由人工来手工回滚和补偿。</li>
 </ol>
-<p>布隆过滤器的原理：当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。查询时，将元素通过散列函数映射之后会得到k个点，如果这些点有任何一个0，则被检元素一定不在，直接返回；如果都是1，则查询元素很可能存在，就会去查询Redis和数据库。</p>
-<h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><p>缓存雪崩是指在我们设置缓存时采用了相同的过期时间，<strong>导致缓存在某一时刻同时失效</strong>，请求全部转发到DB，DB瞬时压力过重挂掉。</p>
-<p>解决方法：在原有的失效时间基础上<strong>增加一个随机值</strong>，使得过期时间分散一些。</p>
-<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><p>缓存击穿：大量的请求同时查询一个 key 时，此时这个 key 正好失效了，就会导致大量的请求都落到数据库。<strong>缓存击穿是查询缓存中失效的 key，而缓存穿透是查询不存在的 key。</strong></p>
-<p>解决方法：加分布式锁，第一个请求的线程可以拿到锁，拿到锁的线程查询到了数据之后设置缓存，其他的线程获取锁失败会等待50ms然后重新到缓存取数据，这样便可以避免大量的请求落到数据库。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">get</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123; <span class="comment">//缓存值过期</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">unique_key</span> <span class="operator">=</span> systemId + <span class="string">&quot;:&quot;</span> + key;</span><br><span class="line">        <span class="comment">//设置30s的超时</span></span><br><span class="line">        <span class="keyword">if</span> (redis.set(unique_key, <span class="number">1</span>, <span class="string">&#x27;NX&#x27;</span>, <span class="string">&#x27;PX&#x27;</span>, <span class="number">30000</span>) == <span class="number">1</span>) &#123;  <span class="comment">//设置成功</span></span><br><span class="line">            value = db.get(key);</span><br><span class="line">            redis.set(key, value, expire_secs);</span><br><span class="line">            redis.del(unique_key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//其他线程已经到数据库取值并回写到缓存了，可以重试获取缓存值</span></span><br><span class="line">            sleep(<span class="number">50</span>);</span><br><span class="line">            get(key);  <span class="comment">//重试</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="缓存预热"><a href="#缓存预热" class="headerlink" title="缓存预热"></a>缓存预热</h3><p>缓存预热就是系统上线后，将相关的缓存数据直接加载到缓存系统。这样就可以避免在用户请求的时候，先查询数据库，然后再将数据缓存的问题！用户直接查询事先被预热的缓存数据！</p>
-<p>解决方案：</p>
+<p>这个还是比较合适的，目前国内互联网公司大都是这么玩儿的，要不你举用 RocketMQ 支持的，要不你就自己基于类似 ActiveMQ？RabbitMQ？自己封装一套类似的逻辑出来，总之思路就是这样子的。</p>
+<h2 id="最大努力通知方案"><a href="#最大努力通知方案" class="headerlink" title="最大努力通知方案"></a>最大努力通知方案</h2><p>这个方案的大致意思就是：</p>
 <ol>
-<li>直接写个缓存刷新页面，上线时手工操作一下；</li>
-<li>数据量不大，可以在项目启动的时候自动进行加载；</li>
-<li>定时刷新缓存；</li>
+<li>系统 A 本地事务执行完之后，发送个消息到 MQ；</li>
+<li>这里会有个专门消费 MQ 的最大努力通知服务，这个服务会消费 MQ 然后写入数据库中记录下来，或者是放入个内存队列也可以，接着调用系统 B 的接口；</li>
+<li>要是系统 B 执行成功就 ok 了；要是系统 B 执行失败了，那么最大努力通知服务就定时尝试重新调用系统 B，反复 N 次，最后还是不行就放弃。</li>
 </ol>
-<h3 id="缓存降级"><a href="#缓存降级" class="headerlink" title="缓存降级"></a>缓存降级</h3><p>当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级。</p>
-<p>缓存降级的最终目的是保证核心服务可用，即使是有损的。而且有些服务是无法降级的（如加入购物车、结算）。</p>
-<p>在进行降级之前要对系统进行梳理，看看系统是不是可以丢卒保帅；从而梳理出哪些必须誓死保护，哪些可降级；比如可以参考日志级别设置预案：</p>
-<ol>
-<li>一般：比如有些服务偶尔因为网络抖动或者服务正在上线而超时，可以自动降级；</li>
-<li>警告：有些服务在一段时间内成功率有波动（如在95~100%之间），可以自动降级或人工降级，并发送告警；</li>
-<li>错误：比如可用率低于90%，或者数据库连接池被打爆了，或者访问量突然猛增到系统能承受的最大阀值，此时可以根据情况自动降级或者人工降级；</li>
-<li>严重错误：比如因为特殊原因数据错误了，此时需要紧急人工降级。</li>
-</ol>
-<p>服务降级的目的，是为了防止Redis服务故障，导致数据库跟着一起发生雪崩问题。因此，对于不重要的缓存数据，可以采取服务降级策略，例如一个比较常见的做法就是，Redis出现问题，不去数据库查询，而是直接返回默认值给用户。</p>
-<h3 id="如何保证缓存与数据库双写时的数据一致性？"><a href="#如何保证缓存与数据库双写时的数据一致性？" class="headerlink" title="如何保证缓存与数据库双写时的数据一致性？"></a>如何保证缓存与数据库双写时的数据一致性？</h3><p><strong>1、先删除缓存再更新数据库</strong></p>
-<p>进行更新操作时，先删除缓存，然后更新数据库，后续的请求再次读取时，会从数据库读取后再将新数据更新到缓存。</p>
-<p>存在的问题：删除缓存数据之后，更新数据库完成之前，这个时间段内如果有新的读请求过来，就会从数据库读取旧数据重新写到缓存中，再次造成不一致，并且后续读的都是旧数据。</p>
-<p><strong>2、先更新数据库再删除缓存</strong></p>
-<p>进行更新操作时，先更新MySQL，成功之后，删除缓存，后续读取请求时再将新数据回写缓存。</p>
-<p>存在的问题：更新MySQL和删除缓存这段时间内，请求读取的还是缓存的旧数据，不过等数据库更新完成，就会恢复一致，影响相对比较小。</p>
-<p><strong>3、异步更新缓存</strong></p>
-<p>数据库的更新操作完成后不直接操作缓存，而是把这个操作命令封装成消息扔到消息队列中，然后由Redis自己去消费更新数据，消息队列可以保证数据操作顺序一致性，确保缓存系统的数据正常。</p>
-<p>以上几个方案都不完美，需要根据业务需求，评估哪种方案影响较小，然后选择相应的方案。</p>
 
       
       
@@ -245,6 +244,16 @@
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/avatar.jfif">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/avatar.jfif">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
@@ -319,7 +328,7 @@
   <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
   <p>扫一扫，分享到微信</p>
   <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/023/05/22/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wang371329.github.io/023/02/03/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/" alt="微信分享二维码">
   </div>
 </div>
 
@@ -334,8 +343,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2023/01/30/%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84%E4%B8%80%E5%A4%A9-2023%E5%B9%B41%E6%9C%8830%E6%97%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">精彩绝伦的一天--2023年1月30日</div>
+    <a href="/2023/02/01/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分布式缓存</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -354,6 +363,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">CAP理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE%E7%90%86%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">BASE理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">实现方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2PC-XA%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">2PC&#x2F;XA方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCC%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">TCC强一致性方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E6%B6%88%E6%81%AF%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%E6%96%B9%E6%A1%88"><span class="toc-number">6.</span> <span class="toc-text">可靠消息最终一致性方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B%E9%80%9A%E7%9F%A5%E6%96%B9%E6%A1%88"><span class="toc-number">7.</span> <span class="toc-text">最大努力通知方案</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -499,6 +521,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">简介</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
@@ -508,14 +538,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简介</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,15 +629,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">地址</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">

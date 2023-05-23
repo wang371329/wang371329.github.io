@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多表联查进行数据统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/">多表联查进行数据统计</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/" class="archive-article-date">
+  	<time datetime="2022-09-21T07:40:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多表联查进行数据统计时，建议使用子查询，否则统计的数据不准确</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;selectLnCensusArticleList&quot; parameterType=&quot;LnArticle&quot; resultMap=&quot;LnArticleResult&quot;&gt;</span><br><span class="line">    SELECT</span><br><span class="line">    (select count(lc.collection_id) from  ln_collection lc where lc.collection_id = la.id and lc.type = &#x27;article&#x27;) collectionCount,</span><br><span class="line">    (select count(lac.article_id) from  ln_article_comment lac where lac.article_id = la.id) commentCount,</span><br><span class="line">    (select count(lsl.support_id) from  ln_support_log lsl where lsl.support_id = la.id and lsl.type = &#x27;article&#x27;) supportCount,</span><br><span class="line">    (select count( lab.browse_id) from  ln_browse lab where lab.browse_id = la.id and lab.type = &#x27;article&#x27;) browseCount,</span><br><span class="line">    (select count(lar.reward_id) from  ln_article_reward lar where lar.reward_id = la.id ) rewardCount,</span><br><span class="line">    la.*</span><br><span class="line">    FROM</span><br><span class="line">    ln_article la</span><br><span class="line">    &lt;where&gt;</span><br><span class="line">        &lt;if test=&quot;title != null  and title != &#x27;&#x27;&quot;&gt; and la.title like concat(&#x27;%&#x27;, #&#123;title&#125;, &#x27;%&#x27;)&lt;/if&gt;</span><br><span class="line">    &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql统计与时间查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -892,89 +975,6 @@
 
 
   
-    <article id="post-第六章MyBatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/">第六章MyBatis</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/" class="archive-article-date">
-  	<time datetime="2022-08-09T10:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>#{}和${}的区别是什么<br>#{}：预编译处理，解析传递进来的参数数据，会将参数加上引号，可以有效防止sql注入，提高系统安全性<br>${}：字符串替换，对传递进来的参数原样拼接在sql中，有sql注入的风险</li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1110,6 +1110,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">简介</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
@@ -1119,14 +1127,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简介</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,15 +1218,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">地址</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
