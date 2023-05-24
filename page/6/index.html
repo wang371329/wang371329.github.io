@@ -152,6 +152,193 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第七部分：Mybatis缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/08/%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E7%BC%93%E5%AD%98/">第七部分：Mybatis缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/08/%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E7%BC%93%E5%AD%98/" class="archive-article-date">
+  	<time datetime="2022-06-08T13:52:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h1><p>1.在一个sqlSession中，对User表根据id进行两次查询，查看他们发出sql语句的情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//根据 sqlSessionFactory 产生 session</span></span><br><span class="line">    <span class="type">SqlSession</span> <span class="variable">sqlSession</span> <span class="operator">=</span> sessionFactory.openSession();</span><br><span class="line">    <span class="type">UserMapper</span> <span class="variable">userMapper</span> <span class="operator">=</span> sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    <span class="comment">//第一次查询，发出sql语句，并将查询出来的结果放进缓存中</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">u1</span> <span class="operator">=</span> userMapper.selectUserByUserId(<span class="number">1</span>);</span><br><span class="line">    System.out.println(u1);</span><br><span class="line">    <span class="comment">//第二次查询，由于是同一个sqlSession,会在缓存中查询结果</span></span><br><span class="line">    <span class="comment">//如果有，则直接从缓存中取出来，不和数据库进行交互</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">u2</span> <span class="operator">=</span> userMapper.selectUserByUserId(<span class="number">1</span>);</span><br><span class="line">    System.out.println(u2);</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/06/08/%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E7%BC%93%E5%AD%98/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块一</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">持久层框架设计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MyBatis源码分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/08/%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E7%BC%93%E5%AD%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-第六部分：Mybatis注解开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/07/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/">第六部分：Mybatis注解开发</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/07/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" class="archive-article-date">
+  	<time datetime="2022-06-07T14:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MyBatis的常用注解"><a href="#MyBatis的常用注解" class="headerlink" title="MyBatis的常用注解"></a>MyBatis的常用注解</h1><p>这几年来注解开发越来越流行，Mybatis也可以使用注解开发方式，这样我们就可以减少编写Mapper映射文件了。我们先围绕一些基本的CRUD来学习，再学习复杂映射多表操作。</p>
+        
+          <a class="article-more-a" href="/2022/06/07/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块一</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">持久层框架设计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MyBatis源码分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/07/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86%EF%BC%9AMybatis%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
     <article id="post-第五部分：Mybatis复杂映射开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -865,176 +1052,9 @@
 
 
       
-    <article id="post-搭建hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">搭建hexo博客</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2022-05-27T14:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>花了一晚上搭建了个博客，虽然市面上的博客平台很多，如：简书、博客园、CSDN。可以直接在平台上发布，用户交互做的也很好。不过有个缺点，广告多，而且会有博客被删除的风险。<br>自己购买域名和服务器的话，搭建成本太高，而且还要定期对他进行维护，花费的时间精力太高。<br>所以，可以选择搭建一个静态博客，发布到github 托管我们的博客，方便我们写作。</p>
-        
-          <a class="article-more-a" href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/27/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-写博客的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/22/%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%8E%9F%E5%9B%A0/">写博客的原因</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/22/%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%8E%9F%E5%9B%A0/" class="archive-article-date">
-  	<time datetime="2022-05-22T10:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="没什么不好意思的，先说说为什么写博客吧！"><a href="#没什么不好意思的，先说说为什么写博客吧！" class="headerlink" title="没什么不好意思的，先说说为什么写博客吧！"></a>没什么不好意思的，先说说为什么写博客吧！</h3><h2 id="有以下几个原因："><a href="#有以下几个原因：" class="headerlink" title="有以下几个原因："></a>有以下几个原因：</h2><ul>
-<li><p>前段时间打算找女朋友。我的思想观念比较传统，只有我的各方面可以达到一定要求时才会考虑恋爱、结婚。否则在我的观念里，这是对双方的不负责。毕竟不以结婚为目的的恋爱都是耍流氓。之后通过一些方式联系到了女生，见了面，添加到了联系方式。聊天过程中发现自己还是不够优秀。需要认真学习，提升自己，强大自我。</p>
-</li>
-<li><p>对知识的积累 工作有段时间了，遇到不少难点，也学过不少专业知识，不过没有进行详细记录。虽然学到不少，但并不牢固，好记性不如烂笔头嘛。</p>
-</li>
-<li><p>阅读的记录 之前读的书，读完就过去了，没有进行记录，搭建这个博客也是对读物进行一个记录。</p>
-</li>
-<li><p>语言的表达、知识的总结。毕竟是写博客，不是做笔记。笔记是自己看懂就可以了，博客是大家要看懂。这个对于语句的表达会有很大的提高。</p>
-</li>
-</ul>
-<p><strong>长此以往的坚持一定会有显著的提高。</strong></p>
-<p><img src="/images/preface.webp"> </p>
-
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">简介</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/22/%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%8E%9F%E5%9B%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
         
           <nav id="page-nav">
-            <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+            <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
           </nav>
           
             
@@ -1143,15 +1163,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,11 +1203,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color3">简介</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简介</a>
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,6 +1224,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hutools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,10 +1248,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring源码分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,6 +1307,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">诗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
@@ -1296,6 +1320,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">YY</a>
               </li>
              
               <li class="article-tag-list-item">
