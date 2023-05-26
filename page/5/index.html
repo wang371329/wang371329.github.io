@@ -152,6 +152,490 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第五章Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/07/%E7%AC%AC%E4%BA%94%E7%AB%A0Redis/">第五章Redis</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/07/%E7%AC%AC%E4%BA%94%E7%AB%A0Redis/" class="archive-article-date">
+  	<time datetime="2022-08-07T10:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>什么是redis？为什么要用redis<br>redis是一个基于内存的k-v数据库，读写速度非常快，号称支持每秒11万次读操作或8万次写操作。我们使用redis主要是以下两方面原因。<br>  1.速度:对于一些需要频繁读取的热点数据，以及一些需要频繁修改的统计数据。使用传统的关系型数据库时，随着数据库数据量的增长，每次操作会变得很慢，导致效率很低，因此需要把这些数据放入redis中处理。<br>  2.并发:当并发访问量很大时，传统的关系型数据库会顶不住访问压力，这个时候需要redis顶在关系型数据库前面起一个缓冲的作用。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/08/07/%E7%AC%AC%E4%BA%94%E7%AB%A0Redis/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/07/%E7%AC%AC%E4%BA%94%E7%AB%A0Redis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-第四章SpringCloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/05/%E7%AC%AC%E5%9B%9B%E7%AB%A0SpringCloud/">第四章SpringCloud</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/05/%E7%AC%AC%E5%9B%9B%E7%AB%A0SpringCloud/" class="archive-article-date">
+  	<time datetime="2022-08-05T10:24:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>什么是cap理论<br>一致性(Consistency):写操作后的读操作可以读取到最新的数据状态，当数据分布在多个节点上，从任意结点读取到的数据都是最新的状态，如果读取不到最新的数据就返回查询失败。<br>可用性(Availability):用户发出任何请求，都会得到响应结果，且不会出现响应失败和超时，不保证每次响应都是最新的数据。<br>分区容错性(Partitiontolerance):一个分布式系统由多个节点组成，部分节点坏了，整个系统还可以保证正常访问，不会挂掉。<br>CPA理论表明:在一个系统中，CAP不可能同时满足，只可能最多同时满足两条。<br>对于分布式系统，容错性是一定会要的，要么保证一致性牺牲可用性，要么保证可用性牺牲一致性。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/08/05/%E7%AC%AC%E5%9B%9B%E7%AB%A0SpringCloud/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/05/%E7%AC%AC%E5%9B%9B%E7%AB%A0SpringCloud/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-第三章SpringBoot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/03/%E7%AC%AC%E4%B8%89%E7%AB%A0SpringBoot/">第三章SpringBoot</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/03/%E7%AC%AC%E4%B8%89%E7%AB%A0SpringBoot/" class="archive-article-date">
+  	<time datetime="2022-08-03T10:24:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>springboot相比于传统的spring框架的优势是什么<br>  1.基于注解开发，简化了spring繁琐的配置。<br>  2.基于maven项目提供了各种starter， 方便jar包弓|入。<br>  3.内嵌了tomcat服务器，作为jar包可以独立运行，更适合微服务。</p>
+        
+          <a class="article-more-a" href="/2022/08/03/%E7%AC%AC%E4%B8%89%E7%AB%A0SpringBoot/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/03/%E7%AC%AC%E4%B8%89%E7%AB%A0SpringBoot/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-第二章Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0Spring/">第二章Spring</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0Spring/" class="archive-article-date">
+  	<time datetime="2022-08-01T10:23:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>说一下对spring中ioc和aop的理解<br>(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IoC容器来动态注入对象需要的外部依赖。<br>(2)最直观的表达就是，以前创建对象的主动权和时机都是由自己把控的，IOC让对象的创建不用去new了，可以由spring自动生产，使用java的反射机制，根据配置文件在运行时动态的去创建对象以及管理对象，并调用对象的方法的。<br>(3)Spring的IOC有三种注入方式:构造器注入、setter方法注入、根据注解注入。<br>AOP，一般称为面向切面，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，这个模块被命名为“切面”(Aspect)，减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。<br>AOP实现的关键在于代理模式，AOP代理主要分为静态代理和动态代理。静态代理的代表为AspectJ;动态代理则以Spring AOP为代表。<br>(1)AspectJ是静态代理，也称为编译时增强，AOP框架会在编译阶段生成AOP代理类，并将AspectJ(切面)织入到Java字节码中，运行的时候就是增强之后的AOP对象。<br>(2)Spring AOP使用的动态代理，所谓的动态代理就是说AOP框架不会去修改字节码，而是每次运行时在内存中临时为方法生成一个AOP对象，这个AOP对象包含了目标对象的全部方法，并且在特定的切点做了增强处理，并回调原对象的方法。<br>Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动态代理。</p>
+        
+          <a class="article-more-a" href="/2022/08/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0Spring/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0Spring/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-第一章java基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/30/%E7%AC%AC%E4%B8%80%E7%AB%A0java%E5%9F%BA%E7%A1%80/">第一章java基础</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/30/%E7%AC%AC%E4%B8%80%E7%AB%A0java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2022-07-30T06:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>==和equals的区别是什么？<br>==对于基本类型来说是值比较，对于引用类型来说比较的是引用；而equals默认情况下就是==，只是很多类重写了equals方法，比如string、integer等把它变成了值比较。</p>
+</li>
+<li><p>&amp;和&amp;&amp;区别是什么？<br>相同点：&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与(and)。<br>不同点：&amp;&amp;具有短路的功能，而&amp;不具备短路功能。当&amp;运算符两边表达式结果都为false时，整个运算符结果为false，而&amp;&amp;运算符第一个为false时，则结果为false，不再计算第二个表达式。</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/07/30/%E7%AC%AC%E4%B8%80%E7%AB%A0java%E5%9F%BA%E7%A1%80/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/30/%E7%AC%AC%E4%B8%80%E7%AB%A0java%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-读《老子》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/28/%E8%AF%BB%E3%80%8A%E8%80%81%E5%AD%90%E3%80%8B/">读《老子》</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/28/%E8%AF%BB%E3%80%8A%E8%80%81%E5%AD%90%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2022-07-28T12:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>老子，姓李名耳，字聃，一字伯阳，或曰谥伯阳，春秋末期人，生卒年不详，籍贯也多有争议，《史记》等记载老子出生于楚国或陈国。中国古代思想家、哲学家、文学家和史学家，道家学派创始人和主要代表人物，与庄子并称“老庄”。后被道教尊为始祖，称“太上老君”。在唐朝，被追认为李姓始祖。曾被列为世界文化名人，世界百位历史名人之一。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2022/07/28/%E8%AF%BB%E3%80%8A%E8%80%81%E5%AD%90%E3%80%8B/#more">more >></a>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/28/%E8%AF%BB%E3%80%8A%E8%80%81%E5%AD%90%E3%80%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
     <article id="post-读《自私的基因》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -469,536 +953,9 @@
 
 
       
-    <article id="post-读《三体：地球往事》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/06/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93%EF%BC%9A%E5%9C%B0%E7%90%83%E5%BE%80%E4%BA%8B%E3%80%8B/">读《三体：地球往事》</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/06/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93%EF%BC%9A%E5%9C%B0%E7%90%83%E5%BE%80%E4%BA%8B%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2022-07-06T13:43:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作者：刘慈欣</p>
-</blockquote>
-<blockquote>
-<p>《三体》讲的是在文化大革命如火如荼进行的同时，军方探寻外星文明的绝密计划“红岸工程”取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。地球文明向宇宙发出的第一声啼鸣，以太阳为中心，以光速向宇宙深处飞驰……</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2022/07/06/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93%EF%BC%9A%E5%9C%B0%E7%90%83%E5%BE%80%E4%BA%8B%E3%80%8B/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书籍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/06/%E8%AF%BB%E3%80%8A%E4%B8%89%E4%BD%93%EF%BC%9A%E5%9C%B0%E7%90%83%E5%BE%80%E4%BA%8B%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第三部分：手写实现IOC和AOP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/">第三部分：手写实现IOC和AOP</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/" class="archive-article-date">
-  	<time datetime="2022-07-06T12:56:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="银⾏转账案例界⾯"><a href="#银⾏转账案例界⾯" class="headerlink" title="银⾏转账案例界⾯"></a>银⾏转账案例界⾯</h1><p><img src="/images/spring/spring-11.png"></p>
-        
-          <a class="article-more-a" href="/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块二</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring源码分析</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IOC容器设计实现</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/06/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0IOC%E5%92%8CAOP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-读《杨戬-人生长恨水长东》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/03/%E8%AF%BB%E3%80%8A%E6%9D%A8%E6%88%AC-%E4%BA%BA%E7%94%9F%E9%95%BF%E6%81%A8%E6%B0%B4%E9%95%BF%E4%B8%9C%E3%80%8B/">读《杨戬--人生长恨水长东》</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/03/%E8%AF%BB%E3%80%8A%E6%9D%A8%E6%88%AC-%E4%BA%BA%E7%94%9F%E9%95%BF%E6%81%A8%E6%B0%B4%E9%95%BF%E4%B8%9C%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2022-07-03T10:10:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作者：水明石</p>
-</blockquote>
-<h2 id="剧情搞笑，治愈，值得一看"><a href="#剧情搞笑，治愈，值得一看" class="headerlink" title="剧情搞笑，治愈，值得一看"></a><em>剧情搞笑，治愈，值得一看</em></h2><blockquote>
-<p>神仙意味着长生，却不意味着不死。单纯的背后，往往是太过残酷的真实，人，鬼，神，莫不如是。<br>劈山救母，三界纯孝的传奇。高擎的宝莲灯，追求美好爱情的象征。但谁又知道，成就了这传奇和这象征的，是怎样的一条血腥和阴谋之路。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2022/07/03/%E8%AF%BB%E3%80%8A%E6%9D%A8%E6%88%AC-%E4%BA%BA%E7%94%9F%E9%95%BF%E6%81%A8%E6%B0%B4%E9%95%BF%E4%B8%9C%E3%80%8B/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书籍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/03/%E8%AF%BB%E3%80%8A%E6%9D%A8%E6%88%AC-%E4%BA%BA%E7%94%9F%E9%95%BF%E6%81%A8%E6%B0%B4%E9%95%BF%E4%B8%9C%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第⼆部分：核心思想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/30/%E7%AC%AC%E2%BC%86%E9%83%A8%E5%88%86%EF%BC%9A%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3/">第⼆部分：核心思想</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/30/%E7%AC%AC%E2%BC%86%E9%83%A8%E5%88%86%EF%BC%9A%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2022-06-30T13:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>注意：IOC和AOP不是spring提出的，在spring之前就已经存在，只不过更偏向于理论化，spring在技术层次把这两个思想做了⾮常好的实现（Java）</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2022/06/30/%E7%AC%AC%E2%BC%86%E9%83%A8%E5%88%86%EF%BC%9A%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块二</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring源码分析</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IOC容器设计实现</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/30/%E7%AC%AC%E2%BC%86%E9%83%A8%E5%88%86%EF%BC%9A%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第⼀部分：Spring概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/30/%E7%AC%AC%E2%BC%80%E9%83%A8%E5%88%86%EF%BC%9ASpring%E6%A6%82%E8%BF%B0/">第⼀部分：Spring概述</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/30/%E7%AC%AC%E2%BC%80%E9%83%A8%E5%88%86%EF%BC%9ASpring%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2022-06-30T12:39:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Spring-简介"><a href="#Spring-简介" class="headerlink" title="Spring 简介"></a>Spring 简介</h1><p>Spring是分层的full-stack（全栈）轻量级开源框架，以IoC和AOP为内核，提供了展现层Spring MVC和业务层事务管理等众多的企业级应⽤技术，还能整合开源世界众多著名的第三⽅框架和类库，已经成为使⽤最多的 Java EE 企业应⽤开源框架。<br><a target="_blank" rel="noopener" href="http://spring.io/">Spring 官⽅⽹址</a><br>我们经常说的 Spring 其实指的是Spring Framework（spring 框架）。</p>
-        
-          <a class="article-more-a" href="/2022/06/30/%E7%AC%AC%E2%BC%80%E9%83%A8%E5%88%86%EF%BC%9ASpring%E6%A6%82%E8%BF%B0/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一阶段</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开源框架源码解析</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">模块二</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IoC容器设计实现</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring源码分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/30/%E7%AC%AC%E2%BC%80%E9%83%A8%E5%88%86%EF%BC%9ASpring%E6%A6%82%E8%BF%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/29/%E6%94%B6%E9%9B%86/">收集</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/29/%E6%94%B6%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2022-06-29T12:42:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>姓名：保密<br>生日：1998.01.09<br>民族：汉<br>爱好：吃<br>理想：在某一领域留名</p>
-<p>以下是我看过的，其中喜欢的，收集起来，以后有喜欢的还会添加，部分遗忘</p>
-        
-          <a class="article-more-a" href="/2022/06/29/%E6%94%B6%E9%9B%86/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">收集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">介绍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/29/%E6%94%B6%E9%9B%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
         
           <nav id="page-nav">
-            <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+            <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
           </nav>
           
             
@@ -1107,6 +1064,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
               </li>
              
@@ -1119,15 +1080,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,6 +1109,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">简介</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">海量数据场景题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,6 +1172,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">模块一</a>
               </li>
              
@@ -1224,10 +1185,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MyBatis源码分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,19 +1212,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">诗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ip</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">地址</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">诗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">地址</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,6 +1245,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
