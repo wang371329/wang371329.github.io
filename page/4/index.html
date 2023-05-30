@@ -152,6 +152,344 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-oss视频切片上传与读取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/29/oss%E8%A7%86%E9%A2%91%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0%E4%B8%8E%E8%AF%BB%E5%8F%96/">oss视频切片上传与读取</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/29/oss%E8%A7%86%E9%A2%91%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0%E4%B8%8E%E8%AF%BB%E5%8F%96/" class="archive-article-date">
+  	<time datetime="2022-11-29T00:08:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传统视频上传是将视频完整上传至服务器，读取视频时需要加载整个视频，知道将完整视频读取后才会就行播放。而使用视频切片后会将原视频切片，分割为一个.m3u8与若干.ts文件，当对视频读取时，会按照时间节点通过.m3u8中的文件地址读取相应的.ts文件，大大减少了视频加载时的等待时间。<br>本功能用了两种方式。第一种是通过本地安装ffmpeg软件进行视频切割，第二种是通过应用ffmpeg依赖进行视频切割。</p>
+<h1 id="安装ffmpeg方式"><a href="#安装ffmpeg方式" class="headerlink" title="安装ffmpeg方式"></a>安装ffmpeg方式</h1><h2 id="安装ffmpeg"><a href="#安装ffmpeg" class="headerlink" title="安装ffmpeg"></a>安装ffmpeg</h2><p><a target="_blank" rel="noopener" href="https://ffmpeg.org/">https://ffmpeg.org/</a></p>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oss</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ffmpeg</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/29/oss%E8%A7%86%E9%A2%91%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0%E4%B8%8E%E8%AF%BB%E5%8F%96/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-mysql我的好友功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/15/mysql%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B%E5%8A%9F%E8%83%BD/">mysql我的好友功能</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/15/mysql%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B%E5%8A%9F%E8%83%BD/" class="archive-article-date">
+  	<time datetime="2022-11-15T05:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java好友功能"><a href="#java好友功能" class="headerlink" title="java好友功能"></a>java好友功能</h1><p>因需要分页功能，通过sql进行分页查询</p>
+<h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><table>
+<thead>
+<tr>
+<th>主键</th>
+<th>用户id</th>
+<th>关注用户id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>user_id</td>
+<td>collection_id</td>
+</tr>
+</tbody></table>
+<h2 id="sql语句"><a href="#sql语句" class="headerlink" title="sql语句"></a>sql语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.user_id,a.collection_id <span class="keyword">from</span> ln_collection a <span class="keyword">inner</span> <span class="keyword">join</span> ln_collection b <span class="keyword">on</span> a.collection_id <span class="operator">=</span> b.user_id <span class="keyword">and</span> a.user_id <span class="operator">=</span> b.collection_id <span class="keyword">where</span> a.user_id <span class="operator">=</span> #&#123;userId&#125;</span><br></pre></td></tr></table></figure>
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/15/mysql%E6%88%91%E7%9A%84%E5%A5%BD%E5%8F%8B%E5%8A%9F%E8%83%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-java时间处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/14/java%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">java时间处理</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/14/java%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2022-11-14T05:27:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>获取某月第一天与最后一天</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 获取某月第一天与最后一天</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map <span class="title function_">getAfterAndEnd</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">    Map&lt;String,Date&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> date.toInstant()</span><br><span class="line">            .atZone(ZoneId.systemDefault())    <span class="comment">//设置当前系统时区</span></span><br><span class="line">            .toLocalDate();</span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">firstDay</span> <span class="operator">=</span> localDate.with(TemporalAdjusters.firstDayOfMonth()); <span class="comment">// 获取当前月的第一天</span></span><br><span class="line">    <span class="type">LocalDate</span> <span class="variable">lastDay</span> <span class="operator">=</span> localDate.with(TemporalAdjusters.lastDayOfMonth()); <span class="comment">// 获取当前月的最后一天</span></span><br><span class="line">    <span class="type">Date</span> <span class="variable">firstDate</span> <span class="operator">=</span> Date.from(firstDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line">    <span class="type">Date</span> <span class="variable">lastDate</span> <span class="operator">=</span> Date.from(lastDay.atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br><span class="line"><span class="comment">//  map.put(&quot;firstDay&quot;, firstDay);//2022-09-01</span></span><br><span class="line"><span class="comment">//  map.put(&quot;lastDay&quot;, lastDay);//2022-09-30</span></span><br><span class="line">    map.put(<span class="string">&quot;firstDate&quot;</span>, firstDate);<span class="comment">//Thu Sep 01 00:00:00 CST 2022</span></span><br><span class="line">    map.put(<span class="string">&quot;lastDate&quot;</span>, lastDate);<span class="comment">//Fri Sep 30 00:00:00 CST 2022</span></span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取后 N 月的日期</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取后 N 月的日期</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Date <span class="title function_">getAfterDate</span><span class="params">(Date startDate, <span class="type">int</span> month)</span> &#123;</span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">cal</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    cal.setTime(startDate);</span><br><span class="line">    cal.add(Calendar.MONTH, month); <span class="comment">//获取当前时间的后3个月</span></span><br><span class="line">    <span class="keyword">return</span> cal.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>java获取Date类型时间的前3个月，后3个月，前3天，后3天</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">cal</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">cal.setTime(date);</span><br><span class="line">cal.add(Calendar.HOUR,-<span class="number">3</span>); <span class="comment">//获取当前时间的前3个小时</span></span><br><span class="line">cal.add(Calendar.MONTH,-<span class="number">3</span>); <span class="comment">//获取当前时间的前3个月</span></span><br><span class="line">cal.add(Calendar.HOUR,<span class="number">3</span>); <span class="comment">//获取当前时间的后三个小时</span></span><br><span class="line">cal.add(Calendar.MONTH,<span class="number">3</span>); <span class="comment">//获取当前时间的后3个月</span></span><br><span class="line">cal.add(Calendar.YEAR,-<span class="number">3</span>);<span class="comment">//获取当前时间的前3年</span></span><br><span class="line">cal.add(Calendar.YEAR,<span class="number">3</span>);<span class="comment">//获取当前时间 的后3年</span></span><br><span class="line">System.out.println(cal.getTime());</span><br></pre></td></tr></table></figure>
+
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/14/java%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-多表联查进行数据统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/">多表联查进行数据统计</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/" class="archive-article-date">
+  	<time datetime="2022-09-21T07:40:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多表联查进行数据统计时，建议使用子查询，否则统计的数据不准确</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectLnCensusArticleList&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;LnArticle&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;LnArticleResult&quot;</span>&gt;</span></span><br><span class="line">    SELECT</span><br><span class="line">    (select count(lc.collection_id) from  ln_collection lc where lc.collection_id = la.id and lc.type = &#x27;article&#x27;) collectionCount,</span><br><span class="line">    (select count(lac.article_id) from  ln_article_comment lac where lac.article_id = la.id) commentCount,</span><br><span class="line">    (select count(lsl.support_id) from  ln_support_log lsl where lsl.support_id = la.id and lsl.type = &#x27;article&#x27;) supportCount,</span><br><span class="line">    (select count( lab.browse_id) from  ln_browse lab where lab.browse_id = la.id and lab.type = &#x27;article&#x27;) browseCount,</span><br><span class="line">    (select count(lar.reward_id) from  ln_article_reward lar where lar.reward_id = la.id ) rewardCount,</span><br><span class="line">    la.*</span><br><span class="line">    FROM</span><br><span class="line">    ln_article la</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;title != null  and title != &#x27;&#x27;&quot;</span>&gt;</span> and la.title like concat(&#x27;%&#x27;, #&#123;title&#125;, &#x27;%&#x27;)<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/21/%E5%A4%9A%E8%A1%A8%E8%81%94%E6%9F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
     <article id="post-mysql统计与时间查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -174,8 +512,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p> IFNULL(?,0)当数据为空时 返回0<br> sum( CASE WHEN lso.STATUS != 9 THEN 1 ELSE 0 END ) 当符合when中条件时数据加1，否则不加<br>
-        
-          <a class="article-more-a" href="/2022/09/21/mysql%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/#more">more >></a>
         
       
       
@@ -507,8 +843,6 @@
 <li>servlet的生命周期<br>分为五个阶段：加载、创建、初始化、处理客户请求、卸载<br>  1.加载：容器通过类加载器使用servlet类对应的文件加载servlet<br>  2.创建：通过调用servlet构造函数创建一个servlet实例<br>  3.初始化：调用init()方法初始化<br>  4.处理客户请求：每当有一个客户请求，容器会创建一个新的线程来处理客户请求(调用service()方法来响应客户请求，service()方法会根据请求的method属性来调用doget()&amp;dopost()方法)<br>  5.卸载：容器在卸载servlet之前，需要调用destroy()方法让servlet自己释放其占用的资源</li>
 </ul>
         
-          <a class="article-more-a" href="/2022/08/20/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0JavaWeb/#more">more >></a>
-        
       
       
       
@@ -590,8 +924,6 @@
 <li>谈一谈对数据库三大范式的理解<br>第一范式：第一范式是最基本的范式。如果数据库表中的所有字段值都是不可再拆分，就说明该数据库表满足了第一范式。强调原子性<br>第二范式：在第一范式的基础上，必须要有主键，且所有列都必须完全依赖于主键，不能依赖主键的一部分。强调每一列都与主键相关<br>第三范式：在第二范式的基础上，所有列必须直接依赖于主键，不能存在传递依赖。不能c依赖于b，b再依赖于a</li>
 </ul>
         
-          <a class="article-more-a" href="/2022/08/18/%E7%AC%AC%E5%8D%81%E7%AB%A0Mysql/#more">more >></a>
-        
       
       
       
@@ -619,333 +951,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/08/18/%E7%AC%AC%E5%8D%81%E7%AB%A0Mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第九章Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/15/%E7%AC%AC%E4%B9%9D%E7%AB%A0Linux/">第九章Linux</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/15/%E7%AC%AC%E4%B9%9D%E7%AB%A0Linux/" class="archive-article-date">
-  	<time datetime="2022-08-15T10:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>linux的目录结构是什么<br>  1./：根目录<br>  2./bin：存放二进制可执行文件(ls，cat，mkdir等)，常用命令一般都在这里。<br>  3./etc：存放系统管理和配置文件<br>  4./hone：存放所有用户文件的根目录，是用户目录的基点，比如用户user的主目录就是/home/user，可以用~user表示<br>  5./opt：额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里。<br>  6./proc：虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息<br>  7./root：超级用户(系统管理员)的主目录<br>  8./sbin：存放二进制可执行文件，只有root才能访问。这里存放的是系统管理员使用的系统级别的管理命令的程序。如ifconfig等<br>  9./dev：用于存放设备文件<br>  10./mnt：系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其它的文件系统<br>  11./boot：存放用于系统引导时是使用的各种文件<br>  12./tmp：用于存放各种临时文件，是公用的临时文件存储点<br>  13./var：用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件，系统启动日志等</p>
-        
-          <a class="article-more-a" href="/2022/08/15/%E7%AC%AC%E4%B9%9D%E7%AB%A0Linux/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/15/%E7%AC%AC%E4%B9%9D%E7%AB%A0Linux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第八章JVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/13/%E7%AC%AC%E5%85%AB%E7%AB%A0JVM/">第八章JVM</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/13/%E7%AC%AC%E5%85%AB%E7%AB%A0JVM/" class="archive-article-date">
-  	<time datetime="2022-08-13T10:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>jvm有哪些主要组成部分及其作用<br>jvm主要组成部分包括:类加载器、运行时数据区(内存结构)、执行引擎、本地接口库、垃圾回收机制。<br>java程序运行时，首先通过类加载器把Java代码转换成字节码。然后运行时数据区再把字节码加载到内存中，而字节码文件只是JVM的一套指令集规范，并不能直接交给底层操作系统去执行。需要特定的执行引擎，将字节码翻译成底层系统指令，再交由CPU去执行。在此过程中还需要通过本地接口库调用其他语言来实现整个程序的功能。在此过程中垃圾回收机制会将一些不需要的内存释放回收，避免出现内存溢出等问题。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/08/13/%E7%AC%AC%E5%85%AB%E7%AB%A0JVM/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/13/%E7%AC%AC%E5%85%AB%E7%AB%A0JVM/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第七章RabbitMq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/11/%E7%AC%AC%E4%B8%83%E7%AB%A0RabbitMq/">第七章RabbitMq</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/11/%E7%AC%AC%E4%B8%83%E7%AB%A0RabbitMq/" class="archive-article-date">
-  	<time datetime="2022-08-11T10:25:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>mq常见的用途有哪些<br>  1.异步:将非必要的业务逻辑写入消息队列，以异步的方式运行，加快响应速度。如果有一个注册功能，将用户信息写入数据库后，发送邮件给用户邮箱。发送邮件时间比较长，不用异步的情况下用户需要等好长时间才能得到注册成功结果，体验很差。用了异步之后，信息落库之后将发送邮件的请求放入mq，然后直接返回注册成功，响应速度快体验好。<br>  2.解耦:一般用于和第三方对接接口。将消息写入消息队列，需要消息的时候第三方系统从消息队列中订阅，如果需要增加或减少第三方系统，只需要自行订阅或者取消订阅即可，不需要改动代码。<br>  3.削峰:当有特殊活动使得某一时刻请求量激增时，将请求放入mq，系统慢慢的按照数据库能处理的并发量，从消息队列中慢慢拉取消息。在生产中，这个短暂的高峰期积压是允许的。<br>  4.延时队列:有的需求需要延迟执行某个功能，比如下订单后如果用户未付款需要延迟对订单进行取消，这时候可以下订单后将订单信息放入延迟队列中，延迟队列的消息过期后加入取消队列(死信队列)，消费取消队列中的消息并判断订单是否已付款，如果未付款的话进行取消订单。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/08/11/%E7%AC%AC%E4%B8%83%E7%AB%A0RabbitMq/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java复习宝典，RabbitMq</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/11/%E7%AC%AC%E4%B8%83%E7%AB%A0RabbitMq/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-第六章MyBatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/">第六章MyBatis</a>
-    </h1>
-  
-
-        
-        <a href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/" class="archive-article-date">
-  	<time datetime="2022-08-09T10:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>#{}和${}的区别是什么<br>#{}：预编译处理，解析传递进来的参数数据，会将参数加上引号，可以有效防止sql注入，提高系统安全性<br>${}：字符串替换，对传递进来的参数原样拼接在sql中，有sql注入的风险</li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/#more">more >></a>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java复习宝典</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/09/%E7%AC%AC%E5%85%AD%E7%AB%A0MyBatis/">展开全文 >></a>
         </p>
       
 
@@ -1106,10 +1111,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdk8</a>
               </li>
              
@@ -1130,6 +1131,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">简介</a>
               </li>
              
@@ -1142,6 +1147,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hutools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">收集</a>
               </li>
              
@@ -1150,11 +1159,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hutools</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1170,7 +1183,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IoC容器设计实现</a>
+                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,23 +1191,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
+                <a href="javascript:void(0)" class="js-tag color5">IoC容器设计实现</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java复习宝典，RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java复习宝典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1207,6 +1208,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MyBatis源码分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java复习宝典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,19 +1247,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">诗</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">地址</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,10 +1283,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
@@ -1283,6 +1292,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
             
             <div class="clearfix"></div>
