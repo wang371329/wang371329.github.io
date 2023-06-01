@@ -474,7 +474,7 @@
 
 
       
-    <article id="post-图解HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mybatis面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -482,28 +482,269 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/25/%E5%9B%BE%E8%A7%A3HTTP/">图解HTTP</a>
+      <a class="article-title" href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/">mybatis面试题</a>
     </h1>
   
 
         
-        <a href="/2023/03/25/%E5%9B%BE%E8%A7%A3HTTP/" class="archive-article-date">
-  	<time datetime="2023-03-25T08:27:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-25</time>
+        <a href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2023-04-12T09:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>访问baidu.com的过程：</p>
-<ol>
-<li>请求 DNS 服务器，返回 baidu.com 的ip地址；</li>
-<li>HTTP 协议生成针对目标 web 服务器的 HTTP 请求报文；</li>
-<li>TCP 协议将 HTTP 请求报文分割成多个报文段，将报文段发送到对方；</li>
-<li>IP 协议负责分组的选路；</li>
-<li>分组到达目标服务器之后，TCP 协议将接收到的报文段重组得到请求报文；</li>
-<li>HTTP 协议响应请求报文；</li>
-<li>响应结果通过 TCP/IP 通信协议向用户回传。
+        <h2 id="Mybatis是什么？"><a href="#Mybatis是什么？" class="headerlink" title="Mybatis是什么？"></a>Mybatis是什么？</h2><ul>
+<li>MyBatis框架是一个开源的数据持久层框架。</li>
+<li>它的内部封装了通过JDBC访问数据库的操作，支持普通的SQL查询、存储过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索。</li>
+<li>MyBatis作为持久层框架，其主要思想是将程序中的大量SQL语句剥离出来，配置在配置文件当中，实现SQL的灵活配置。</li>
+<li>这样做的好处是将SQL与程序代码分离，可以在不修改代码的情况下，直接在配置文件当中修改SQL。
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-Apollo配置中心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Apollo配置中心</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" class="archive-article-date">
+  	<time datetime="2023-04-10T09:04:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Apollo从设计之初就立志于成为一个有治理能力的配置发布平台，目前提供了以下的特性</p>
+<ul>
+<li><p><strong>统一管理不同环境、不同集群的配置</strong></p>
+</li>
+<li><ul>
+<li>Apollo提供了一个统一界面集中式管理不同环境(Environment)、不同集群(Cluster)、不同命名空间(Namespace)的配置</li>
+<li>同一份代码部署在不同的集群，可以有不同的配置</li>
+<li>通过命名空间可以很方便地支持多个不同应用共享同一份配置，同时还允许应用对共享的配置进行覆盖</li>
+</ul>
+</li>
+</ul>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-深入浅出Mybatis技术原理与实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/">深入浅出Mybatis技术原理与实战</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/" class="archive-article-date">
+  	<time datetime="2023-04-06T08:55:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h2><p>JDBC定义了连接数据库的接口规范，每个数据库厂商都会提供具体的实现，JDBC是一种典型的桥接模式。</p>
+<h3 id="传统的JDBC编程"><a href="#传统的JDBC编程" class="headerlink" title="传统的JDBC编程"></a>传统的JDBC编程</h3><ul>
+<li>获取数据库连接；</li>
+<li>操作Connection，打开Statement对象；</li>
+<li>通过Statement对象执行SQL，返回结果到ResultSet对象；</li>
+<li>关闭数据库资源</li>
+</ul>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-TCP和IP协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/">TCP和IP协议</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
+  	<time datetime="2023-04-03T08:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h3><ol>
+<li>数据链路层：有时称作网络接口层，通常包括操作系统的设备驱动程序和计算机中对应的网络接口卡。</li>
+<li>网络层：处理分组在网络中的活动，如分组的选路。</li>
+<li>运输层：主要为两台主机的应用程序进程之间的通信提供通用的数据传输服务。通用是指多种应用可以使用同一个运输层服务。</li>
+<li>应用层：应用进程间通信和交互的规则。
         
       
       
@@ -531,7 +772,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/25/%E5%9B%BE%E8%A7%A3HTTP/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/">展开全文 >></a>
         </p>
       
 
@@ -561,7 +802,7 @@
 
 
       
-    <article id="post-计算机网络高频面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-session和cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -569,21 +810,20 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/">计算机网络高频面试题</a>
+      <a class="article-title" href="/2023/04/01/session%E5%92%8Ccookie/">session和cookie</a>
     </h1>
   
 
         
-        <a href="/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-03-21T08:18:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-21</time>
+        <a href="/2023/04/01/session%E5%92%8Ccookie/" class="archive-article-date">
+  	<time datetime="2023-04-01T08:38:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网络分层结构"><a href="#网络分层结构" class="headerlink" title="网络分层结构"></a>网络分层结构</h2><p>计算机网络体系大致分为三种，OSI七层模型、TCP/IP四层模型和五层模型。一般面试的时候考察比较多的是五层模型。</p>
-<p><img src="/images/computer/computer-14.png"></p>
+        <p>由于HTTP协议是无状态的协议，需要用某种机制来识具体的用户身份，用来跟踪用户的整个会话。常用的会话跟踪技术是cookie与session。</p>
         
       
       
@@ -611,7 +851,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/04/01/session%E5%92%8Ccookie/">展开全文 >></a>
         </p>
       
 
@@ -641,7 +881,7 @@
 
 
       
-    <article id="post-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -649,21 +889,25 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/19/%E7%AE%97%E6%B3%95/">算法</a>
+      <a class="article-title" href="/2023/03/29/%E7%BD%91%E7%BB%9C/">网络</a>
     </h1>
   
 
         
-        <a href="/2023/03/19/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-03-19T05:56:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-19</time>
+        <a href="/2023/03/29/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+  	<time datetime="2023-03-29T07:29:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p>二叉树的先序、中序和后序属于深度优先遍历DFS，层次遍历属于广度优先遍历BFS。</p>
-<p><img src="/images/computer/computer-09.png"></p>
+        <h1 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h1><ol>
+<li>第一次握手：客户端A向B发出连接请求报文段（首部的同步位SYN=1，初始序号seq=x），此时客户端A进入SYN-SENT（同步已发送）状态。</li>
+<li>第二次握手：B收到连接请求报文段后，如同意建立连接，则向A发送确认（确认报文段中SYN=1，ACK=1，确认号ack=x+1，初始序号seq=y），B进入SYN-RCVD（同步收到）状态；</li>
+<li>第三次握手：A收到B的确认后，向B发送确认报文段（ACK=1，确认号ack=y+1，序号seq=x+1）。然后A进入ESTABLISHED。</li>
+<li>B收到确认报文段，就会进入ESTABLISHED状态，TCP连接成功。</li>
+</ol>
         
       
       
@@ -681,7 +925,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
         		</li>
       		
 		</ul>
@@ -691,249 +935,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/19/%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2023/03/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2023-03-15T05:35:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="各种数据结构应用场景"><a href="#各种数据结构应用场景" class="headerlink" title="各种数据结构应用场景"></a>各种数据结构应用场景</h2><ul>
-<li>栈：逆序输出；语法检查，符号成对判断；方法调用</li>
-<li>二叉树：表达式树</li>
-<li>B+/B-树：文件系统；数据库索引</li>
-<li>哈夫曼树：数据压缩算法</li>
-<li>哈希表：提高查找性能</li>
-<li>红黑树：大致平衡的二叉查找树，相对AVL树，插入删除结点较快，查找性能没有提升
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-操作系统面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/">操作系统面试题</a>
-    </h1>
-  
-
-        
-        <a href="/2023/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-03-13T07:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="操作系统的四个特性？"><a href="#操作系统的四个特性？" class="headerlink" title="操作系统的四个特性？"></a>操作系统的四个特性？</h2><p>并发：同一段时间内多个程序执行（与并行区分，并行指的是同一时刻有多个事件，多处理器系统可以使程序并行执行）</p>
-<p>共享：系统中的资源可以被内存中多个并发执行的进线程共同使用</p>
-<p>虚拟：通过分时复用（如分时系统）以及空分复用（如虚拟内存）技术把一个物理实体虚拟为多个</p>
-<p>异步：系统进程用一种走走停停的方式执行，（并不是一下子走完），进程什么时候以怎样的速度向前推进是不可预知的</p>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-统计不同电话号码的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/10/%E7%BB%9F%E8%AE%A1%E4%B8%8D%E5%90%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E4%B8%AA%E6%95%B0/">统计不同电话号码的个数</a>
-    </h1>
-  
-
-        
-        <a href="/2023/03/10/%E7%BB%9F%E8%AE%A1%E4%B8%8D%E5%90%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2023-03-10T07:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>已知某个文件内包含大量电话号码，每个号码为8位数字，如何统计不同号码的个数？</strong></p>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">海量数据场景题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/10/%E7%BB%9F%E8%AE%A1%E4%B8%8D%E5%90%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/03/29/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
         </p>
       
 
@@ -965,7 +967,7 @@
       
         
           <nav id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
           </nav>
           
             
@@ -1074,6 +1076,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
               </li>
              
@@ -1091,6 +1097,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,10 +1156,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
@@ -1178,19 +1188,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">java复习宝典，RabbitMq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">java复习宝典</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java复习宝典，RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,6 +1209,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MyBatis源码分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,11 +1252,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">YY</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">YY</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,10 +1273,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
