@@ -784,7 +784,7 @@
 
 
       
-    <article id="post-Spring面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -792,26 +792,25 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/">Spring面试题</a>
+      <a class="article-title" href="/2023/05/12/SpringBoot%E5%AE%9E%E6%88%98/">SpringBoot实战</a>
     </h1>
   
 
         
-        <a href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-04-20T03:23:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-20</time>
+        <a href="/2023/05/12/SpringBoot%E5%AE%9E%E6%88%98/" class="archive-article-date">
+  	<time datetime="2023-05-12T05:54:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h2><ul>
-<li>通过控制反转和依赖注入实现<strong>松耦合</strong>。</li>
-<li>支持<strong>面向切面</strong>的编程，并且把应用业务逻辑和系统服务分开。</li>
-<li>通过切面和模板减少样板式代码。</li>
-<li>声明事物的支持。可以从单调繁冗的事务管理代码中解脱出来，通过声明式方式灵活地进行事务的管理，提高开发效率和质量。</li>
-<li>方便集成各种优秀框架。内部提供了对各种优秀框架的直接支持（如：Hessian、Quartz、MyBatis等）。</li>
-<li>方便程序的测试。Spring支持Junit4，添加注解便可以测试Spring程序。
+        <h2 id="Spring-Boot基础"><a href="#Spring-Boot基础" class="headerlink" title="Spring Boot基础"></a>Spring Boot基础</h2><p>理念：习惯优于配置，内置习惯性配置，无需手动进行配置。使用Spring boot可以很快创建一个独立运行、准生产级别的基于Spring框架的项目，不需要或者只需很少的Spring配置。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>内置servlet容器，不需要在服务器部署 tomcat。只需要将项目打成 jar 包，使用 java -jar xxx.jar一键式启动项目</li>
+<li>SpringBoot提供了starter，把常用库聚合在一起，简化复杂的环境配置，快速搭建spring应用环境</li>
+<li>可以快速创建独立运行的spring项目，集成主流框架</li>
+<li>准生产环境的运行应用监控
         
       
       
@@ -827,6 +826,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -835,7 +838,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/12/SpringBoot%E5%AE%9E%E6%88%98/">展开全文 >></a>
         </p>
       
 
@@ -865,7 +868,7 @@
 
 
       
-    <article id="post-netty实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot面试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -873,27 +876,24 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/14/netty%E5%AE%9E%E6%88%98/">netty实战</a>
+      <a class="article-title" href="/2023/05/08/SpringBoot%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">SpringBoot面试总结</a>
     </h1>
   
 
         
-        <a href="/2023/04/14/netty%E5%AE%9E%E6%88%98/" class="archive-article-date">
-  	<time datetime="2023-04-14T03:16:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-14</time>
+        <a href="/2023/05/08/SpringBoot%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2023-05-08T05:51:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="netty-核心组件"><a href="#netty-核心组件" class="headerlink" title="netty 核心组件"></a>netty 核心组件</h3><ul>
-<li><p>Channel：传入和传出数据的载体，它可以连接或者断开连接。</p>
-</li>
-<li><p>回调：操作完成后通知相关方。</p>
-</li>
-<li><p>Future：提供了另一种在操作完成时通知应用程序的方式。</p>
-</li>
-<li><p>事件和 ChannelHandler</p>
+        <h2 id="Springboot的优点"><a href="#Springboot的优点" class="headerlink" title="Springboot的优点"></a>Springboot的优点</h2><ul>
+<li>内置servlet容器，不需要在服务器部署 tomcat。只需要将项目打成 jar 包，使用 java -jar xxx.jar一键式启动项目</li>
+<li>SpringBoot提供了starter，把常用库聚合在一起，简化复杂的环境配置，快速搭建spring应用环境</li>
+<li>可以快速创建独立运行的spring项目，集成主流框架</li>
+<li>准生产环境的运行应用监控
         
       
       
@@ -909,6 +909,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -917,7 +921,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/14/netty%E5%AE%9E%E6%88%98/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/08/SpringBoot%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">展开全文 >></a>
         </p>
       
 
@@ -1078,6 +1082,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
@@ -1146,11 +1158,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,14 +1198,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">模块一</a>
               </li>
              
@@ -1206,11 +1210,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1238,7 +1246,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">地址</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,7 +1254,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">地址</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1271,10 +1279,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>
