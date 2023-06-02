@@ -152,6 +152,316 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-返回值乱码解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/02/%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/">返回值乱码解决</a>
+    </h1>
+  
+
+        
+        <a href="/2023/06/02/%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/" class="archive-article-date">
+  	<time datetime="2023-06-02T03:28:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接口调用商家返回数据提示为<code>ä½é¢ä¸è¶³,å½åéé¢995.87</code>,不能直接返回前台进行展示。<br>将乱码转换为<code>utf-8</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="string">&quot;ä½é¢ä¸è¶³,å½åéé¢995.87&quot;</span>;</span><br><span class="line">msg = <span class="keyword">new</span> <span class="title class_">String</span>(msg.getBytes(<span class="string">&quot;ISO8859-1&quot;</span>), <span class="string">&quot;utf-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>转换后结果为<code>余额不足,当前金额995.87</code>;</p>
+
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/02/%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-AES-128-CBC进行加密与解密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/31/AES-128-CBC%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86/">AES-128-CBC进行加密与解密</a>
+    </h1>
+  
+
+        
+        <a href="/2023/05/31/AES-128-CBC%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86/" class="archive-article-date">
+  	<time datetime="2023-05-31T03:37:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>将字符串通过<code>AES-128-CBC</code>进行加密或者解密<br><code>key</code>为需要加密或解密的字符串，<code>sKey</code>为主密钥，<code>iv</code>为偏移量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取明文key</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getKey</span><span class="params">(String key, String sKey, String iv)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">DeString</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        key = key.substring(<span class="number">0</span>, key.length() - <span class="number">8</span>);</span><br><span class="line">        DeString = AESUtil.getInstance().decrypt(key, <span class="string">&quot;utf-8&quot;</span>, sKey, iv);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> DeString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">AES-128-CBC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">加密与解密</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/05/31/AES-128-CBC%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-按参数名ASCII码从小到大排序（字典序）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/29/%E6%8C%89%E5%8F%82%E6%95%B0%E5%90%8DASCII%E7%A0%81%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F%EF%BC%88%E5%AD%97%E5%85%B8%E5%BA%8F%EF%BC%89/">按参数名ASCII码从小到大排序（字典序）</a>
+    </h1>
+  
+
+        
+        <a href="/2023/05/29/%E6%8C%89%E5%8F%82%E6%95%B0%E5%90%8DASCII%E7%A0%81%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F%EF%BC%88%E5%AD%97%E5%85%B8%E5%BA%8F%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2023-05-29T03:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">TreeMap</span> <span class="variable">params</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeMap</span>();</span><br><span class="line">params.put(<span class="string">&quot;username&quot;</span>, merchantDetails.getUsername());</span><br><span class="line">params.put(<span class="string">&quot;password&quot;</span>, merchantDetails.getPassword());</span><br><span class="line">params.put(<span class="string">&quot;agent_id&quot;</span>, merchantDetails.getAgentId());</span><br><span class="line">params.put(<span class="string">&quot;nonce_str&quot;</span>, SybUtil.getValidatecode(<span class="number">8</span>));<span class="comment">//随机字符串</span></span><br><span class="line"><span class="comment">//内容进行排序拼接</span></span><br><span class="line"><span class="type">String</span> <span class="variable">signContent</span> <span class="operator">=</span> SignatureUtil.getSignContent(params);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SignatureUtil<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getSignContent</span><span class="params">(Map&lt;String, String&gt; sortedParams)</span> &#123;</span><br><span class="line">    <span class="type">StringBuffer</span> <span class="variable">content</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">    List&lt;String&gt; keys = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;(sortedParams.keySet());</span><br><span class="line">    Collections.sort(keys);</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; keys.size(); i++) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> keys.get(i);</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> sortedParams.get(key);</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span>!=key&amp;&amp;<span class="literal">null</span>!=value) &#123;</span><br><span class="line">            content.append((index == <span class="number">0</span> ? <span class="string">&quot;&quot;</span> : <span class="string">&quot;&amp;&quot;</span>) + key + <span class="string">&quot;=&quot;</span> + value);</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> content.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+        
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/05/29/%E6%8C%89%E5%8F%82%E6%95%B0%E5%90%8DASCII%E7%A0%81%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F%EF%BC%88%E5%AD%97%E5%85%B8%E5%BA%8F%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
+    <article id="post-生成随机码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/27/%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E7%A0%81/">生成随机码</a>
+    </h1>
+  
+
+        
+        <a href="/2023/05/27/%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E7%A0%81/" class="archive-article-date">
+  	<time datetime="2023-05-27T03:52:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传入随机码长度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生成随机码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getValidatecode</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">	<span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">	<span class="type">String</span> <span class="variable">sRand</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">	n = n == <span class="number">0</span> ? <span class="number">4</span> : n;<span class="comment">// default 4</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">rand</span> <span class="operator">=</span> String.valueOf(random.nextInt(<span class="number">10</span>));</span><br><span class="line">		sRand += rand;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sRand;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/05/27/%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E7%A0%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
     <article id="post-胡笳十八拍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -474,7 +784,7 @@
 
 
       
-    <article id="post-mybatis面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -482,24 +792,26 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/">mybatis面试题</a>
+      <a class="article-title" href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/">Spring面试题</a>
     </h1>
   
 
         
-        <a href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-04-12T09:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-12</time>
+        <a href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2023-04-20T03:23:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Mybatis是什么？"><a href="#Mybatis是什么？" class="headerlink" title="Mybatis是什么？"></a>Mybatis是什么？</h2><ul>
-<li>MyBatis框架是一个开源的数据持久层框架。</li>
-<li>它的内部封装了通过JDBC访问数据库的操作，支持普通的SQL查询、存储过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索。</li>
-<li>MyBatis作为持久层框架，其主要思想是将程序中的大量SQL语句剥离出来，配置在配置文件当中，实现SQL的灵活配置。</li>
-<li>这样做的好处是将SQL与程序代码分离，可以在不修改代码的情况下，直接在配置文件当中修改SQL。
+        <h2 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h2><ul>
+<li>通过控制反转和依赖注入实现<strong>松耦合</strong>。</li>
+<li>支持<strong>面向切面</strong>的编程，并且把应用业务逻辑和系统服务分开。</li>
+<li>通过切面和模板减少样板式代码。</li>
+<li>声明事物的支持。可以从单调繁冗的事务管理代码中解脱出来，通过声明式方式灵活地进行事务的管理，提高开发效率和质量。</li>
+<li>方便集成各种优秀框架。内部提供了对各种优秀框架的直接支持（如：Hessian、Quartz、MyBatis等）。</li>
+<li>方便程序的测试。Spring支持Junit4，添加注解便可以测试Spring程序。
         
       
       
@@ -523,7 +835,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/12/mybatis%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/04/20/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -553,7 +865,7 @@
 
 
       
-    <article id="post-Apollo配置中心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-netty实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -561,30 +873,27 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Apollo配置中心</a>
+      <a class="article-title" href="/2023/04/14/netty%E5%AE%9E%E6%88%98/">netty实战</a>
     </h1>
   
 
         
-        <a href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" class="archive-article-date">
-  	<time datetime="2023-04-10T09:04:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
+        <a href="/2023/04/14/netty%E5%AE%9E%E6%88%98/" class="archive-article-date">
+  	<time datetime="2023-04-14T03:16:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Apollo从设计之初就立志于成为一个有治理能力的配置发布平台，目前提供了以下的特性</p>
-<ul>
-<li><p><strong>统一管理不同环境、不同集群的配置</strong></p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="netty-核心组件"><a href="#netty-核心组件" class="headerlink" title="netty 核心组件"></a>netty 核心组件</h3><ul>
+<li><p>Channel：传入和传出数据的载体，它可以连接或者断开连接。</p>
 </li>
-<li><ul>
-<li>Apollo提供了一个统一界面集中式管理不同环境(Environment)、不同集群(Cluster)、不同命名空间(Namespace)的配置</li>
-<li>同一份代码部署在不同的集群，可以有不同的配置</li>
-<li>通过命名空间可以很方便地支持多个不同应用共享同一份配置，同时还允许应用对共享的配置进行覆盖</li>
-</ul>
+<li><p>回调：操作完成后通知相关方。</p>
 </li>
-</ul>
+<li><p>Future：提供了另一种在操作完成时通知应用程序的方式。</p>
+</li>
+<li><p>事件和 ChannelHandler</p>
         
       
       
@@ -608,334 +917,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/10/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-深入浅出Mybatis技术原理与实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/">深入浅出Mybatis技术原理与实战</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/" class="archive-article-date">
-  	<time datetime="2023-04-06T08:55:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h2><p>JDBC定义了连接数据库的接口规范，每个数据库厂商都会提供具体的实现，JDBC是一种典型的桥接模式。</p>
-<h3 id="传统的JDBC编程"><a href="#传统的JDBC编程" class="headerlink" title="传统的JDBC编程"></a>传统的JDBC编程</h3><ul>
-<li>获取数据库连接；</li>
-<li>操作Connection，打开Statement对象；</li>
-<li>通过Statement对象执行SQL，返回结果到ResultSet对象；</li>
-<li>关闭数据库资源</li>
-</ul>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMybatis%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E6%88%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-TCP和IP协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/">TCP和IP协议</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h3><ol>
-<li>数据链路层：有时称作网络接口层，通常包括操作系统的设备驱动程序和计算机中对应的网络接口卡。</li>
-<li>网络层：处理分组在网络中的活动，如分组的选路。</li>
-<li>运输层：主要为两台主机的应用程序进程之间的通信提供通用的数据传输服务。通用是指多种应用可以使用同一个运输层服务。</li>
-<li>应用层：应用进程间通信和交互的规则。
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/TCP%E5%92%8CIP%E5%8D%8F%E8%AE%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-session和cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/01/session%E5%92%8Ccookie/">session和cookie</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/01/session%E5%92%8Ccookie/" class="archive-article-date">
-  	<time datetime="2023-04-01T08:38:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于HTTP协议是无状态的协议，需要用某种机制来识具体的用户身份，用来跟踪用户的整个会话。常用的会话跟踪技术是cookie与session。</p>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/01/session%E5%92%8Ccookie/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
-    <article id="post-网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/29/%E7%BD%91%E7%BB%9C/">网络</a>
-    </h1>
-  
-
-        
-        <a href="/2023/03/29/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2023-03-29T07:29:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h1><ol>
-<li>第一次握手：客户端A向B发出连接请求报文段（首部的同步位SYN=1，初始序号seq=x），此时客户端A进入SYN-SENT（同步已发送）状态。</li>
-<li>第二次握手：B收到连接请求报文段后，如同意建立连接，则向A发送确认（确认报文段中SYN=1，ACK=1，确认号ack=x+1，初始序号seq=y），B进入SYN-RCVD（同步收到）状态；</li>
-<li>第三次握手：A收到B的确认后，向B发送确认报文段（ACK=1，确认号ack=y+1，序号seq=x+1）。然后A进入ESTABLISHED。</li>
-<li>B收到确认报文段，就会进入ESTABLISHED状态，TCP连接成功。</li>
-</ol>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/29/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/04/14/netty%E5%AE%9E%E6%88%98/">展开全文 >></a>
         </p>
       
 
@@ -967,7 +949,7 @@
       
         
           <nav id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
           </nav>
           
             
@@ -1076,6 +1058,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AES-128-CBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">加密与解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
@@ -1088,6 +1078,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1097,14 +1095,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,11 +1146,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1200,6 +1190,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">模块一</a>
               </li>
              
@@ -1209,10 +1203,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MyBatis源码分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
