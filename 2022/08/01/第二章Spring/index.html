@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>第二章Spring | 懒人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说一下对spring中ioc和aop的理解(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IoC容器来动态注入对象需要的外部依赖。(2)最直观的表达就是，以前创建对象的主动权和时机都是">
+  <meta name="description" content="说一下对spring中IOC和aop的理解(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IOC容器来动态注入对象需要的外部依赖。(2)最直观的表达就是，以前创建对象的主动权和时机都是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二章Spring">
 <meta property="og:url" content="http://example.com/2022/08/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0Spring/index.html">
 <meta property="og:site_name" content="懒人">
-<meta property="og:description" content="说一下对spring中ioc和aop的理解(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IoC容器来动态注入对象需要的外部依赖。(2)最直观的表达就是，以前创建对象的主动权和时机都是">
+<meta property="og:description" content="说一下对spring中IOC和aop的理解(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IOC容器来动态注入对象需要的外部依赖。(2)最直观的表达就是，以前创建对象的主动权和时机都是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-01T10:23:46.000Z">
-<meta property="article:modified_time" content="2023-05-22T01:44:03.480Z">
+<meta property="article:modified_time" content="2023-06-08T06:51:55.520Z">
 <meta property="article:author" content="懒人">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="java复习宝典">
@@ -178,7 +178,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p>说一下对spring中ioc和aop的理解<br>(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IoC容器来动态注入对象需要的外部依赖。<br>(2)最直观的表达就是，以前创建对象的主动权和时机都是由自己把控的，IOC让对象的创建不用去new了，可以由spring自动生产，使用java的反射机制，根据配置文件在运行时动态的去创建对象以及管理对象，并调用对象的方法的。<br>(3)Spring的IOC有三种注入方式:构造器注入、setter方法注入、根据注解注入。<br>AOP，一般称为面向切面，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，这个模块被命名为“切面”(Aspect)，减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。<br>AOP实现的关键在于代理模式，AOP代理主要分为静态代理和动态代理。静态代理的代表为AspectJ;动态代理则以Spring AOP为代表。<br>(1)AspectJ是静态代理，也称为编译时增强，AOP框架会在编译阶段生成AOP代理类，并将AspectJ(切面)织入到Java字节码中，运行的时候就是增强之后的AOP对象。<br>(2)Spring AOP使用的动态代理，所谓的动态代理就是说AOP框架不会去修改字节码，而是每次运行时在内存中临时为方法生成一个AOP对象，这个AOP对象包含了目标对象的全部方法，并且在特定的切点做了增强处理，并回调原对象的方法。<br>Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动态代理。</p>
+<li><p>说一下对spring中IOC和aop的理解<br>(1)IOC就是控制反转，指创建对象的控制权转移给Spring框架进行管理，并由Spring根据配置文件去创建实例和管理各个实例之间的依赖关系，对象与对象之间松散耦合，也利于功能的复用。DI依赖注入，和控制反转是同一个概念的不同角度的描述，即应用程序在运行时依赖IOC容器来动态注入对象需要的外部依赖。<br>(2)最直观的表达就是，以前创建对象的主动权和时机都是由自己把控的，IOC让对象的创建不用去new了，可以由spring自动生产，使用java的反射机制，根据配置文件在运行时动态的去创建对象以及管理对象，并调用对象的方法的。<br>(3)Spring的IOC有三种注入方式:构造器注入、setter方法注入、根据注解注入。<br>AOP，一般称为面向切面，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，这个模块被命名为“切面”(Aspect)，减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。<br>AOP实现的关键在于代理模式，AOP代理主要分为静态代理和动态代理。静态代理的代表为AspectJ;动态代理则以Spring AOP为代表。<br>(1)AspectJ是静态代理，也称为编译时增强，AOP框架会在编译阶段生成AOP代理类，并将AspectJ(切面)织入到Java字节码中，运行的时候就是增强之后的AOP对象。<br>(2)Spring AOP使用的动态代理，所谓的动态代理就是说AOP框架不会去修改字节码，而是每次运行时在内存中临时为方法生成一个AOP对象，这个AOP对象包含了目标对象的全部方法，并且在特定的切点做了增强处理，并回调原对象的方法。<br>Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动态代理。</p>
 <span id="more"></span></li>
 <li><p>简述一下springmvc的工作流程和组件<br>一、springmvc的工作流程:<br>1、用户向服务端发送一次请求，这个请求会先到中央控制器DispatcherServlet。<br>2、DispatcherServlet接收到请求后会调用HandlerMapping处理器映射器。由此得知，该请求该由哪个Controller来处理(并未调用Controller，只是得知)<br>3、DispatcherServlet调用HandlerAdapter处理器适配器，告诉处理器适配器应该要去执行哪个Controller<br>4、HandlerAdapter处理器适配器去执行Controller并得到ModelAndView(数据和视图)，并层层返回给DispatcherServlet<br>5、DispatcherServlet将ModelAndView交给ViewReslover视图解析器解析，然后返回真正的视图。<br>6、DispatcherServlet将模型数据填充到视图中<br>7、DispatcherServlet将结果响应给用户<br>二、springmvc的相关组件:<br>  1.DispatcherServlet:前端控制器，也称为中央控制器，它是整个请求响应的控制中心，组件的调用由它统一调度。<br>  2.HandlerMapping:处理器映射器，它根据用户访问的URL映射到对应的后端处理器Handler。也就是说它知道处理用户请求的后端处理器，但是它并不执行后端处理器，而是将处理器告诉给中央处理器。<br>  3.HandlerAdapter:处理器适配器，它调用后端处理器中的方法，返回逻辑视图ModelAndView对象。<br>  4.ViewResolver:视图解析器，将ModelAndView逻辑视图解析为具体的视图(如JSP)。<br>  5.Handler:后端处理器，对用户具体请求进行处理，也就是我们编写的Controller类。</p>
 </li>
@@ -527,11 +527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,7 +631,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IoC容器设计实现</a>
+                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,15 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java复习宝典，RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">java复习宝典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/framework/framework-32.png">
 <meta property="article:published_time" content="2023-05-04T05:45:46.000Z">
-<meta property="article:modified_time" content="2023-06-02T05:49:05.589Z">
+<meta property="article:modified_time" content="2023-06-08T06:51:55.530Z">
 <meta property="article:author" content="懒人">
 <meta property="article:tag" content="框架">
 <meta property="article:tag" content="Spring">
@@ -212,9 +212,9 @@
 <p>IOC：控制反转，由Spring容器管理bean的整个生命周期。通过反射实现对其他对象的控制，包括初始化、创建、销毁等，解放手动创建对象的过程，同时降低类之间的耦合度。</p>
 <p>IOC的好处：降低了类之间的耦合，对象创建和初始化交给Spring容器管理，在需要的时候只需向容器进行申请。</p>
 <p>DI(依赖注入)：在Spring创建对象的过程中，把对象依赖的属性注入到对象中。有两种方式：构造器注入和属性注入。</p>
-<h3 id="ioc容器"><a href="#ioc容器" class="headerlink" title="ioc容器"></a>ioc容器</h3><p>Spring主要有两种ioc容器，实现了BeanFactory接口的简单容器和ApplicationContext高级容器。</p>
+<h3 id="IOC容器"><a href="#IOC容器" class="headerlink" title="IOC容器"></a>IOC容器</h3><p>Spring主要有两种IOC容器，实现了BeanFactory接口的简单容器和ApplicationContext高级容器。</p>
 <ul>
-<li><p><code>BeanFactory</code> ：延迟注入(使用到某个 bean 的时候才会注入),相比于<code>BeanFactory</code> 来说会占用更少的内存，程序启动速度更快。BeanFactory提供了最基本的ioc容器的功能（最基本的依赖注入支持）。</p>
+<li><p><code>BeanFactory</code> ：延迟注入(使用到某个 bean 的时候才会注入),相比于<code>BeanFactory</code> 来说会占用更少的内存，程序启动速度更快。BeanFactory提供了最基本的IOC容器的功能（最基本的依赖注入支持）。</p>
 </li>
 <li><p><code>ApplicationContext</code> ：容器启动的时候，一次性创建所有 bean 。<code>ApplicationContext</code> 扩展了 <code>BeanFactory</code> ，除了有<code>BeanFactory</code>的功能还有额外更多功能，所以一般开发人员使用<code>ApplicationContext</code>会更多。</p>
 </li>
@@ -225,9 +225,9 @@
 <li>支持多种途径获取 Bean 定义信息；</li>
 <li>支持应用事件，方便管理 Bean；</li>
 </ol>
-<p>DefaultListableBeanFactory 实现了 ioc 容器的基本功能，其他 ioc 容器如 XmlBeanFactory 和 ApplicationContext 都是通过持有或扩展 DefaultListableBeanFactory 获得基本的 ioc 容器的功能。 </p>
+<p>DefaultListableBeanFactory 实现了 IOC 容器的基本功能，其他 IOC 容器如 XmlBeanFactory 和 ApplicationContext 都是通过持有或扩展 DefaultListableBeanFactory 获得基本的 IOC 容器的功能。 </p>
 <h3 id="BeanDefinition"><a href="#BeanDefinition" class="headerlink" title="BeanDefinition"></a>BeanDefinition</h3><p>BeanDefinition 用于管理Spring应用的对象和对象之间的依赖关系，是对象依赖关系的数据抽象。</p>
-<h3 id="容器初始化"><a href="#容器初始化" class="headerlink" title="容器初始化"></a>容器初始化</h3><p>ioc 容器初始化过程：BeanDefinition 的资源定位、解析和注册。</p>
+<h3 id="容器初始化"><a href="#容器初始化" class="headerlink" title="容器初始化"></a>容器初始化</h3><p>IOC 容器初始化过程：BeanDefinition 的资源定位、解析和注册。</p>
 <ol>
 <li>从XML中读取配置文件。</li>
 <li>将bean标签解析成 BeanDefinition，如解析 property 元素， 并注入到 BeanDefinition 实例中。</li>
@@ -287,7 +287,7 @@
 
 
 <h2 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h2><p>Spring创建bean默认是单例，每一个Bean的实例只会被创建一次，通过getBean()获取的是同一个Bean的实例。可使用＜bean＞标签的scope属性来指定一个Bean的作用域。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 作用域：prototype --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;accountDao&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span>     <span class="attr">class</span>=<span class="string">&quot;com.zejian.spring.springIoc.dao.impl.AccountDaoImpl&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 作用域：prototype --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;accountDao&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span>     <span class="attr">class</span>=<span class="string">&quot;com.zejian.spring.springIOC.dao.impl.AccountDaoImpl&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>通过注解来声明作用域：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Scope(&quot;prototype&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AccountDaoImpl</span> &#123;</span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -399,9 +399,9 @@
 <h2 id="Spring启动过程"><a href="#Spring启动过程" class="headerlink" title="Spring启动过程"></a>Spring启动过程</h2><ol>
 <li><p>读取web.xml文件。</p>
 </li>
-<li><p>创建 ServletContext，为 ioc 容器提供宿主环境。</p>
+<li><p>创建 ServletContext，为 IOC 容器提供宿主环境。</p>
 </li>
-<li><p>触发容器初始化事件，调用 contextLoaderListener.contextInitialized()方法，在这个方法会初始化一个应用上下文WebApplicationContext，即 Spring 的 ioc 容器。ioc 容器初始化完成之后，会被存储到 ServletContext 中。</p>
+<li><p>触发容器初始化事件，调用 contextLoaderListener.contextInitialized()方法，在这个方法会初始化一个应用上下文WebApplicationContext，即 Spring 的 IOC 容器。IOC 容器初始化完成之后，会被存储到 ServletContext 中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextInitialized</span><span class="params">(ServletContextEvent event)</span> &#123;</span><br><span class="line">	initWebApplicationContext(event.getServletContext());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>初始化web.xml中配置的Servlet。如DispatcherServlet，用于匹配、处理每个servlet请求。</p>
 </li>
@@ -568,7 +568,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP"><span class="toc-number">1.</span> <span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">静态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">动态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-AOP%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">Spring AOP动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">实现原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC"><span class="toc-number">2.</span> <span class="toc-text">IOC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ioc%E5%AE%B9%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">ioc容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanDefinition"><span class="toc-number">2.2.</span> <span class="toc-text">BeanDefinition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.3.</span> <span class="toc-text">容器初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.4.</span> <span class="toc-text">Bean生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aware%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.5.</span> <span class="toc-text">Aware接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanFactory%E5%92%8CFactoryBean"><span class="toc-number">2.6.</span> <span class="toc-text">BeanFactory和FactoryBean</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FactoryBean%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.1.</span> <span class="toc-text">FactoryBean使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bean%E6%B3%A8%E5%85%A5%E5%AE%B9%E5%99%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.7.</span> <span class="toc-text">bean注入容器的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">3.</span> <span class="toc-text">bean的作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transactional"><span class="toc-number">4.1.</span> <span class="toc-text">@Transactional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="toc-number">4.2.</span> <span class="toc-text">事务传播行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">5.</span> <span class="toc-text">循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text">三级缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">Spring启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">7.</span> <span class="toc-text">Spring Bean线程安全</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP"><span class="toc-number">1.</span> <span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">静态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">动态代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-AOP%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">Spring AOP动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">实现原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC"><span class="toc-number">2.</span> <span class="toc-text">IOC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC%E5%AE%B9%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">IOC容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanDefinition"><span class="toc-number">2.2.</span> <span class="toc-text">BeanDefinition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.3.</span> <span class="toc-text">容器初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.4.</span> <span class="toc-text">Bean生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aware%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.5.</span> <span class="toc-text">Aware接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanFactory%E5%92%8CFactoryBean"><span class="toc-number">2.6.</span> <span class="toc-text">BeanFactory和FactoryBean</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FactoryBean%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.1.</span> <span class="toc-text">FactoryBean使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bean%E6%B3%A8%E5%85%A5%E5%AE%B9%E5%99%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.7.</span> <span class="toc-text">bean注入容器的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">3.</span> <span class="toc-text">bean的作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transactional"><span class="toc-number">4.1.</span> <span class="toc-text">@Transactional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="toc-number">4.2.</span> <span class="toc-text">事务传播行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">5.</span> <span class="toc-text">循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text">三级缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">Spring启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">7.</span> <span class="toc-text">Spring Bean线程安全</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -706,11 +706,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis-Plus</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,7 +810,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IoC容器设计实现</a>
+                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,15 +818,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IOC容器设计实现</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java复习宝典，RabbitMq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">java复习宝典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMq</a>
               </li>
              
               <li class="article-tag-list-item">
