@@ -152,6 +152,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SHA-256加密、验签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/15/SHA-256%E5%8A%A0%E5%AF%86%E3%80%81%E9%AA%8C%E7%AD%BE/">SHA-256加密、验签</a>
+    </h1>
+  
+
+        
+        <a href="/2023/06/15/SHA-256%E5%8A%A0%E5%AF%86%E3%80%81%E9%AA%8C%E7%AD%BE/" class="archive-article-date">
+  	<time datetime="2023-06-15T02:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>签名，将所有的POST 参数 (不包括数组、json对象、Sign和值为空的参数) 和Key (平台提供)拼成一个字符串<br>使用SHA-256 算法计算签名值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">sign</span><span class="params">(JSONObject jsObj, String key)</span> &#123;</span><br><span class="line">    ArrayList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iter</span> <span class="operator">=</span> jsObj.keys();</span><br><span class="line">    <span class="comment">//将JSONObject（不包括数组、json对象、Sign和值为空的参数）转化为ArrayList集合</span></span><br><span class="line">    <span class="keyword">while</span> (iter.hasNext()) &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">field</span> <span class="operator">=</span> (String) iter.next();</span><br><span class="line">        <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> jsObj.get(field);</span><br><span class="line">        <span class="keyword">if</span> (!<span class="string">&quot;Sign&quot;</span>.equals(field) &amp;&amp; !(value <span class="keyword">instanceof</span> JSONArray)) &#123;</span><br><span class="line">            list.add(field + <span class="string">&quot;=&quot;</span> + value.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//加入key</span></span><br><span class="line">    list.add(<span class="string">&quot;Key=&quot;</span> + key);</span><br><span class="line">    <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size();</span><br><span class="line">    <span class="comment">//集合转化为数组</span></span><br><span class="line">    String[] arrayToSort = list.toArray(<span class="keyword">new</span> <span class="title class_">String</span>[size]);</span><br><span class="line">    <span class="comment">//按字典排序</span></span><br><span class="line">    Arrays.sort(arrayToSort);</span><br><span class="line">    <span class="comment">//拼接成字符串</span></span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">            sb.append(<span class="string">&quot;&amp;&quot;</span>);</span><br><span class="line">        sb.append(arrayToSort[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> sb.toString();</span><br><span class="line">    <span class="comment">//使用SHA-256(转换为16机制) 得到64 byte 的签名值</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">MessageDigest</span> <span class="variable">messageDigest</span> <span class="operator">=</span> MessageDigest.getInstance(<span class="string">&quot;SHA-256&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] bytes = messageDigest.digest(result.getBytes());</span><br><span class="line">        result = Hex.encodeHexString(bytes);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;<span class="comment">// 忽略加密方式和字符集不支持异常</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回结果</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">send</span> <span class="operator">=</span> CCBScanService.send(jsonString, channel);</span><br><span class="line">SignVerifyUtil.verify(JSONObject.fromObject(send)</span><br></pre></td></tr></table></figure>
+
+<p>接口返回数据进行二次验签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">verify</span><span class="params">(JSONObject jsObj, String key)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">sign</span> <span class="operator">=</span> jsObj.getString(<span class="string">&quot;Sign&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (sign == <span class="literal">null</span> || sign.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sign.equals(sign(jsObj, key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">SHA-256</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">验签</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/15/SHA-256%E5%8A%A0%E5%AF%86%E3%80%81%E9%AA%8C%E7%AD%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+      
     <article id="post-2023-06-04梦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -867,96 +955,6 @@
 
 
       
-    <article id="post-SpringCloud微服务实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/16/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98/">SpringCloud微服务实战</a>
-    </h1>
-  
-
-        
-        <a href="/2023/05/16/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98/" class="archive-article-date">
-  	<time datetime="2023-05-16T01:23:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>微服务是将一个原本独立的系统拆分成多个小型服务，这些小型服务都在各自独立的进程中运行。</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/65502802/answer/802678798">从单体应用到微服务</a></p>
-<p>单体系统的缺点：</p>
-<ol>
-<li>修改一个小功能，就需要将整个系统重新部署上线，影响其他功能的运行；</li>
-<li>功能模块互相依赖，强耦合，扩展困难。如果出现性能瓶颈，需要对整体应用进行升级，虽然影响性能的可能只是其中一个小模块；</li>
-</ol>
-<p>单体系统的优点：</p>
-<ol>
-<li><p>容易部署，程序单一，不存在分布式集群的复杂部署环境；</p>
-</li>
-<li><p>容易测试，没有复杂的服务调用关系。</p>
-        
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/16/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E6%88%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-      
         
           <nav id="page-nav">
             <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1084,11 +1082,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">SHA-256</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color3">验签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,6 +1103,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,10 +1174,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">一阶段</a>
               </li>
              
@@ -1200,6 +1202,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">模块一</a>
               </li>
              
@@ -1209,10 +1219,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MyBatis源码分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1256,11 +1262,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">YY</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
+                <a href="javascript:void(0)" class="js-tag color3">YY</a>
               </li>
              
               <li class="article-tag-list-item">
